@@ -1,0 +1,25 @@
+.bg-color{
+    background-color: rgba(16, 19, 18, 0.8);
+}
+
+.slogan {
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    font-family: URW Chancery L, cursive;
+}
+
+.logo {
+    width: 40%;
+    height: 80%;
+    border: solid;
+    border-color: #3b677c;
+}
+
+
+.space {
+    background-color: #3b677c;
+    border-radius: 5px;
+    border-color: #3b677c;
+    color: #fff;
+}
