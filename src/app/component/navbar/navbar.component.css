@@ -3,7 +3,6 @@
 }
 
 .slogan {
-    margin-left: auto;
     margin-right: auto;
     color: #fff;
     font-family: URW Chancery L, cursive;
@@ -22,4 +21,9 @@
     border-radius: 5px;
     border-color: #3b677c;
     color: #fff;
+}
+.space:hover {
+    background: #1c1c1c;
+    color: #fff; 
+    border-color: #1c1c1c;
 }
