@@ -29,3 +29,6 @@ input { height: 60px;}
     font-family: American Typewriter, serif;
 }
 
+.input-group{
+    margin-top: 25px;
+}
