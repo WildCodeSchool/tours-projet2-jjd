@@ -19,14 +19,13 @@ input { height: 60px;}
 
 .bar{
     background-color: rgba(141, 201, 230, 0.4);
-    border-radius: 10%;
 }
 
 .restaurant{
     background-color: rgba(141, 201, 230, 0.4);
-    border-radius: 10%;
 }
 
 .text-center{
     font-family: American Typewriter, serif;
 }
+
