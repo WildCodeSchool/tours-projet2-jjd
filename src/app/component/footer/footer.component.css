@@ -21,12 +21,12 @@
 }
 
 .condition {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .fa {
     padding: 20px;
-    margin: 5px 2px;
+    margin: 5px 5px;
     border-radius: 50%;
 }
 
@@ -34,10 +34,9 @@
     opacity: 0.7;
 }
 
-.fa-facebook {
-    background: #3B5998;
+.fa-instagram {
+    background: #125688;
     color: white;
-    width: 6%;
 }
 
 .fa-twitter {
