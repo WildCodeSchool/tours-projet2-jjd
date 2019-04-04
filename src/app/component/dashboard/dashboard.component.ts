@@ -7,12 +7,12 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  public userId: number;
+  public userId: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.userId = parseInt(params.get('userId'));
+      this.userId = params.get('userId');
     });
 
   }

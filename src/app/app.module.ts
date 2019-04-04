@@ -21,7 +21,6 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
     FooterComponent,
     DashboardComponent,
     NgbdDatepickerPopup,
-    
   ],
   imports: [
     BrowserModule,
