@@ -11,6 +11,7 @@ import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
+import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     BodyComponent,
     FooterComponent,
     DashboardComponent,
+    NgbdDatepickerPopup,
+    
   ],
   imports: [
     BrowserModule,
