@@ -15,7 +15,6 @@
     color: #fff;
 }
 
-input { height: 60px;}
 
 .bar{
     background-color: rgba(141, 201, 230, 0.4);
@@ -31,4 +30,14 @@ input { height: 60px;}
 
 .input-group{
     margin-top: 25px;
+}
+
+.drop {
+
+border-radius: 1px;
+border-color:  #ced4da;
+}
+
+.search {
+border-right: none;
 }
