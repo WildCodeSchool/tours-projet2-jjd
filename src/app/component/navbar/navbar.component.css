@@ -1,0 +1,36 @@
+.bg-color{
+    background-color: rgba(16, 19, 18, 0.8);
+}
+
+.slogan {
+    margin-right: auto;
+    color: #fff;
+    font-family: URW Chancery L, cursive;
+}
+
+.logo {
+    width: 40%;
+    height: 80%;
+    border: solid;
+    border-color: #3b677c;
+}
+
+
+.space {
+    background-color: #3b677c;
+    border-radius: 5px;
+    border-color: #3b677c;
+    color: #fff;
+}
+.space:hover {
+    background: #1c1c1c;
+    color: #fff; 
+    border-color: #1c1c1c;
+}
+
+
+@media screen and (min-width: 200px) and (max-width: 940px) {
+    .slogan { display: none }
+    .logo { display: none }
+    .space { margin-top: 10px;}
+}

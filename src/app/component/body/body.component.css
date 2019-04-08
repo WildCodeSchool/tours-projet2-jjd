@@ -1,0 +1,43 @@
+.btn-search {
+    background: #424242;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #1c1c1c;
+    height: 60px;
+}
+.btn-search:link, .btn-search:visited {
+    color: #fff;
+}
+.btn-search:active, .btn-search:hover {
+    background: #1c1c1c;
+    color: #fff;
+}
+
+
+.bar{
+    background-color: rgba(141, 201, 230, 0.4);
+}
+
+.restaurant{
+    background-color: rgba(141, 201, 230, 0.4);
+}
+
+.text-center{
+    font-family: American Typewriter, serif;
+}
+
+.input-group{
+    margin-top: 25px;
+}
+
+.drop {
+
+border-radius: 1px;
+border-color:  #ced4da;
+}
+
+.search {
+border-right: none;
+}
