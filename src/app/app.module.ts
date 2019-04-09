@@ -12,6 +12,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
+import { BookingComponent } from '../app/component/booking/booking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
     FooterComponent,
     DashboardComponent,
     NgbdDatepickerPopup,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
