@@ -1,3 +1,95 @@
 <app-navbar></app-navbar>
-TEST
+
+<div class="container mt-5">
+    
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()"> 
+
+        <div formGroupName="date">
+            <h3>Date</h3>
+            <div class="row">
+                
+                <div class="col">
+                    <div class="form-group">
+                        <input class="form-control" type="number" placeholder = "start" formControlName="start">
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="form-group">
+                        <input class="form-control" type="number" placeholder = "end" formControlName="end">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div formGroupName="owner">
+            
+            <h3>Owner</h3>
+            
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder = "name" formControlName="name">
+            </div>
+            
+            <div formGroupName="address">
+                
+                <h4>Address</h4>
+                
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder = "street" formControlName="street">
+                </div>
+                
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-4">
+                        <input class="form-control" type="text" placeholder = "zip" formControlName="zip">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="form-control" type="text" placeholder = "city" formControlName="city">
+                    </div >
+                    
+                    <div class="form-group col-md-4">
+                        <input class="form-control" type="number" placeholder="number" formControlName="number">
+                    </div>
+                </div>    
+            </div>
+        
+        
+        <div formGroupName="contact">
+            <h3>Contact</h3>
+            <div class="row">
+                
+                <div class="col">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder = "phone" formControlName="phone">
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder = "email" formControlName="email">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <h3>Numbers</h3>
+        
+        <div class="form-group">
+            <input class="form-control" type="number" placeholder = "numbers" formControlName="numbers">
+        </div>
+        
+        <h3>Establishment</h3>
+        
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder = "establishment" formControlName="establishment">   
+        </div>
+        
+        <button class="btn btn-success btn-block mt-4 mb-5" type="submit">Submit</button>
+        
+    </form> 
+</div>
+
 <app-footer></app-footer>

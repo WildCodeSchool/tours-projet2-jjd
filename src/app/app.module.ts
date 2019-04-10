@@ -10,6 +10,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
@@ -29,7 +30,7 @@ import { BookingComponent } from '../app/component/booking/booking.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    NgbModule, HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

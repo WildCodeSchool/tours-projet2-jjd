@@ -1,16 +1,9 @@
 export class Booking {
     constructor(
         public date: {
-            am: {
-                start: number,
-                end: number,
-            },
-            pm: {
-                start: number,
-                end: number,
-            },
+            start: number,
+            end: number,
         },
-
         public owner: {
             name: string,
             adress: {
