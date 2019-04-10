@@ -1,8 +1,191 @@
 <app-navbar></app-navbar>
 
-<div class="container">
-<h3>Profile Formulaire</h3>
+<div class="container mt-5">
 
+  <div [hidden]="submitted">
+    <h1 class="d-flex justify-content-center titre-profile m-5">Profile Form</h1>
+    <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+
+      <div class="row mt-5">
+        <div class="col">
+          <div class="form-group">
+            <label for="firstName"></label>
+            <input type="text" placeholder="First Name*" class="form-control" id="firstName" required [(ngModel)]="model.firstName"
+              name="firstName" #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+              First Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="firstName"></label>
+          <input type="text"  placeholder="Last Name*" class="form-control" id="lastName" required [(ngModel)]="model.lastName" name="lastName"
+            #lastName="ngModel">
+          <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-md-6'>
+          <label for="siret"></label>
+          <input type="text" class="form-control"  placeholder="N° Siret" id="siret" [(ngModel)]="model.siret" name="siret" #siret="ngModel">
+        </div>
+
+
+        <div class='col-md-6'>
+          <label for="siren"></label>
+          <input type="text" class="form-control" placeholder="N° Siren" id="siren" [(ngModel)]="model.siren" name="siren" #siren="ngModel">
+
+        </div>
+
+      </div>
+
+      <label for="key"></label>
+      <input type="text" class="form-control" id="key" placeholder ="Key*" required [(ngModel)]="model.key" name="key" #key="ngModel">
+      <div [hidden]="key.valid || key.pristine" class="alert alert-danger">
+        key is required
+      </div>
+
+
+      <h3 class="d-flex justify-content-center m-5 deck">Adress</h3>
+      <div class="row">
+        <div class='col-md-2'>
+          <label for="number"></label>
+          <input type="text" class="form-control" placeholder="Number*" id="number" required [(ngModel)]="model.number" name="number"
+            #number="ngModel">
+          <div [hidden]="number.valid || number.pristine" class="alert alert-danger">
+            Number is required
+          </div>
+        </div>
+        <div class="col">
+          <label for="street"></label>
+          <input type="text" class="form-control" id="street" placeholder="Street*" required [(ngModel)]="model.street" name="street"
+            #street="ngModel">
+          <div [hidden]="street.valid || street.pristine" class="alert alert-danger">
+            Street is required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="zipCode"></label>
+          <input type="text" class="form-control" placeholder="Zip Code*" id="zipCode" required [(ngModel)]="model.zipCode" name="zipCode"
+            #zipCode="ngModel">
+          <div [hidden]="zipCode.valid || zipCode.pristine" class="alert alert-danger">
+            Zip Code is required
+          </div>
+        </div>
+        <div class="col">
+          <label for="city"></label>
+          <input type="text" class="form-control" placeholder ="City*" id="city" required [(ngModel)]="model.city" name="city"
+            #city="ngModel">
+          <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+            City is required
+          </div>
+        </div>
+      </div>
+
+
+
+      <h3 class="d-flex justify-content-center m-5 deck">Contact</h3>
+
+      <div class="row">
+        <div class="col">
+          <label for="fax"></label>
+          <input type="tel" class="form-control" placeholder="Fax" id="fax" [(ngModel)]="model.fax" name="fax" #fax="ngModel">
+        </div>
+
+        <div class="col">
+          <label for="phone"></label>
+          <input type="tel" class="form-control" placeholder="Phone*" id="phone" required [(ngModel)]="model.phone" name="phone"
+            #phone="ngModel">
+          <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+            Phone is required
+          </div>
+        </div>
+      </div>
+
+
+
+      <label for="email"></label>
+      <input type="email" class="form-control" id="email" placeholder="E-mail*" required [(ngModel)]="model.email" name="email"
+        #email="ngModel">
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        Email is required
+      </div>
+
+      <p class="mt-5">* champs required</p>
+
+
+
+      <div class="d-flex justify-content-around m-5">
+        <button type="submit" class="btn btn-success " [disabled]="!profileForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default new" (click)="newProfile(); profileForm.reset()">Reset</button>
+      </div>
+
+
+
+      
+    </form>
+  
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">First Name : </div>
+      <div class="col-xs-9">{{ model.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Last Name : </div>
+      <div class="col-xs-9">{{ model.lastName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">N° Siret : </div>
+      <div class="col-xs-9">{{ model.siret }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">N° Siren : </div>
+      <div class="col-xs-9">{{ model.siren }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Key : </div>
+      <div class="col-xs-9">{{ model.key }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Number : </div>
+      <div class="col-xs-9">{{ model.number }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Street : </div>
+      <div class="col-xs-9">{{ model.street }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">zip Code : </div>
+      <div class="col-xs-9">{{ model.zipCode }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">City : </div>
+      <div class="col-xs-9">{{ model.city }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Fax : </div>
+      <div class="col-xs-9">{{ model.fax }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Phone : </div>
+      <div class="col-xs-9">{{ model.phone }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Email : </div>
+      <div class="col-xs-9">{{ model.email }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary new" (click)="submitted=false">Edit</button>
+  </div>
 </div>
+
 
 <app-footer></app-footer>
