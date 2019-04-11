@@ -49,7 +49,7 @@
       </div>
 
 
-      <h3 class="d-flex justify-content-center m-5 deck">Adress</h3>
+      <h2 class="d-flex justify-content-center m-5 deck">Adress</h2>
       <div class="row">
         <div class='col-md-2'>
           <label for="number"></label>
@@ -90,7 +90,7 @@
 
 
 
-      <h3 class="d-flex justify-content-center m-5 deck">Contact</h3>
+      <h2 class="d-flex justify-content-center m-5 deck">Contact</h2>
 
       <div class="row">
         <div class="col">
@@ -123,13 +123,16 @@
 
       <div class="d-flex justify-content-around m-5">
         <button type="submit" class="btn btn-success " [disabled]="!profileForm.form.valid">Submit</button>
-        <button type="button" class="btn btn-default new" (click)="newProfile(); profileForm.reset()">Reset</button>
+        <button type="button" class="btn btn-default" (click)="newProfile(); profileForm.reset()">Reset</button>
       </div>
 
 
 
+   
+  </form>
+
       
-    </form>
+    
   
 
   <div [hidden]="!submitted">
@@ -183,7 +186,7 @@
       <div class="col-xs-9">{{ model.email }}</div>
     </div>
     <br>
-    <button class="btn btn-primary new" (click)="submitted=false">Edit</button>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
   </div>
 </div>
 

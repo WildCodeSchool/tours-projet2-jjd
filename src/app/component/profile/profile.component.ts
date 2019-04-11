@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
 
 
 
+
   ngOnInit() {
     this.profileService.getProfile().subscribe(
       (param: Profile[]) => {

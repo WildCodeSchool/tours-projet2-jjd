@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Profile } from '../core/models/profile' 
+import { Profile } from '../core/models/profile' ;
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +22,4 @@ export class ProfileService {
         return  obs1.pipe( map( treatment) );
     }
   
- }
+  }
