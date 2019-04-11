@@ -22,9 +22,7 @@ export class BookingService {
     
     return obs1.pipe( map( treatment) );
   }
-  
-  
-}
+};
 
 
 
