@@ -10,20 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-  public profile: Profile;
-
   constructor(public profileService: ProfileService, private fb: FormBuilder) { }
-
-  onSubmit() {}
-
-  ngOnInit() {
-    this.profileService.getProfile().subscribe(
-      (param: Profile) => {
-        this.profile = param;
-        this.profileForm.patchValue(param);
-      },
-    );
-  }
 
   profileForm = this.fb.group({
 
@@ -45,5 +32,15 @@ export class ProfileComponent implements OnInit {
     }),
 
   });
+
+  ngOnInit() {
+    this.profileService.getProfile().subscribe(
+      (profile: Profile) => {
+        this.profileForm.patchValue(profile);
+      },
+    );
+  }
+
+  onSubmit() {}
 
 }
