@@ -1,19 +1,19 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-5">
-    
-    <h1 class="BookingProfileTitle">Booking Profile</h1>
-    
-    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()"> 
-        
+
+    <h1 class="booking-profile-title">Booking Profile</h1>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+
         <div formGroupName="date">
             <h2>Date</h2>
             <div class="row">
-                
+
                 <div class="col">
                     <div class="form-group">
                         <input [ngClass]="bookingForm.get('date').get('start').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="start" name="start" type="text" formControlName="start">
-                        
+
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('date').get('start')">
                                 <span *ngIf="bookingForm.get('date').get('start')">Start is valid</span>
@@ -26,11 +26,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col">
                     <div class="form-group">
                         <input [ngClass]="bookingForm.get('date').get('end').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="end" name="end" type="text" formControlName="end">
-                        
+
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('date').get('end')">
                                 <span *ngIf="bookingForm.get('date').get('end')">End is valid</span>
@@ -43,17 +43,17 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
-        
+
         <div formGroupName="owner">
-            
+
             <h2>Owner</h2>
-            
+
             <div class="form-group">
                 <input [ngClass]="bookingForm.get('owner').get('name').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="name" name="name" type="text" formControlName="name">
-                
+
                 <div class="valid-feedback">
                     <div *ngIf="bookingForm.get('owner').get('name')">
                         <span *ngIf="bookingForm.get('owner').get('name')">Name is valid</span>
@@ -65,14 +65,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div formGroupName="address">
-                
+
                 <h2>Address</h2>
-                
+
                 <div class="form-group">
                     <input [ngClass]="bookingForm.get('owner').get('address').get('street').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="street" name="street" type="text" formControlName="street">
-                    
+
                     <div class="valid-feedback">
                         <div *ngIf="bookingForm.get('owner').get('address').get('street')">
                             <span *ngIf="bookingForm.get('owner').get('address').get('street')">Street is valid</span>
@@ -84,12 +84,12 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
-                    
+
                     <div class="form-group col-md-4">
                         <input [ngClass]="bookingForm.get('owner').get('address').get('zipCode').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="street" name="zipCode" type="text" formControlName="zipCode">
-                        
+
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('owner').get('address').get('zipCode')">
                                 <span *ngIf="bookingForm.get('owner').get('address').get('zipCode')">ZipCode is valid</span>
@@ -101,10 +101,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group col-md-4">
                         <input [ngClass]="bookingForm.get('owner').get('address').get('city').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="city" name="city" type="text" formControlName="city">
-                        
+
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('owner').get('address').get('city')">
                                 <span *ngIf="bookingForm.get('owner').get('address').get('street')">City is valid</span>
@@ -116,10 +116,10 @@
                             </div>
                         </div>
                     </div >
-                    
+
                     <div class="form-group col-md-4">
                         <input [ngClass]="bookingForm.get('owner').get('address').get('number').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="number" name="number" type="text" formControlName="number">
-                        
+
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('owner').get('address').get('number')">
                                 <span *ngIf="bookingForm.get('owner').get('address').get('number')">Number is valid</span>
@@ -131,13 +131,13 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
-            
+
             <div formGroupName="contact">
                 <h2>Contact</h2>
                 <div class="row">
-                    
+
                     <div class="col">
                         <div class="form-group">
                             <input [ngClass]="bookingForm.get('owner').get('contact').get('phone').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="phone" name="phone" type="text" formControlName="phone">
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col">
                         <div class="form-group">
                             <input [ngClass]="bookingForm.get('owner').get('contact').get('email').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="email" name="email" type="email" formControlName="email">
@@ -172,12 +172,12 @@
                 </div>
             </div>
         </div>
-        
+
         <h2>Numbers</h2>
-        
+
         <div class="form-group">
             <input [ngClass]="bookingForm.get('numbers').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="numbers" name="numbers" type="number" formControlName="numbers">
-            
+
             <div class="valid-feedback">
                 <div *ngIf="bookingForm.get('numbers')">
                     <span *ngIf="bookingForm.get('numbers')">Numbers is valid</span>
@@ -189,12 +189,12 @@
                 </div>
             </div>
         </div>
-        
+
         <h2>Establishment</h2>
-        
+
         <div class="form-group">
             <input [ngClass]="bookingForm.get('establishment').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="establishment" name="establishment" type="text" formControlName="establishment">
-            
+
             <div class="valid-feedback">
                 <div *ngIf="bookingForm.get('establishment')">
                     <span *ngIf="bookingForm.get('establishment')">Establishment is valid</span>
@@ -204,12 +204,12 @@
                 <div *ngIf="bookingForm.get('establishment').errors">
                     <span *ngIf="bookingForm.get('establishment').errors.required">Establishment is required</span>
                 </div>
-            </div>  
+            </div>
         </div>
-        
+
         <button class="btn btn-success btn-block mt-4 mb-5" type="submit">Submit</button>
-        
-    </form> 
+
+    </form>
 </div>
 
 <app-footer></app-footer>
