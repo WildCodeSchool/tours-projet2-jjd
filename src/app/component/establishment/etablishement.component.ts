@@ -9,14 +9,11 @@ import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@ang
   styleUrls: ['./etablishement.component.css'],
 })
 export class EtablishementComponent implements OnInit {
-  public establishment: Establishment[] = [];
-  public q = [
-    { name: 'ssfsf' },
-  ];
-  public test = 'demo';
+  public establishment: Establishment;
   types = [
     { name: 'Bar' },
     { name: 'Restaurent' },
+    { name: 'Computer' },
   ];
 
   constructor(public establishmentService: EstablishmentService, private fb: FormBuilder) {
@@ -24,30 +21,20 @@ export class EtablishementComponent implements OnInit {
 
   ngOnInit() {
     this.establishmentService.getEstablishment().subscribe(
-      (param: Establishment[]) => {
+      (param: Establishment) => {
         this.establishment = param;
-        /*
-        this.establishmentForm.patchValue({
-          address: {
-            zipCode: param
-          },
-        });
-         */
+        this.establishmentForm.patchValue(param);
       },
     );
 
     this.establishmentForm.valueChanges.subscribe((value) => {
       console.log('Valeurs : ', value);
     });
-
-    console.log(this.establishmentService);
-    console.log(JSON.stringify(this.establishment));
-
   }
 
   establishmentForm = this.fb.group({
     name: ['', [Validators.required]],
-    type: [this.types[1].name, [Validators.required]],
+    type: ['', [Validators.required]],
     address: this.fb.group({
       street: ['', [Validators.required]],
       zipCode: ['', [Validators.required]],
@@ -58,7 +45,6 @@ export class EtablishementComponent implements OnInit {
     contact: this.fb.group({
       phone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       email: ['', [Validators.required, Validators.email]],
-      site: ['', [Validators.required]],
     }),
     networks: this.fb.array([
       this.fb.group({
@@ -66,7 +52,7 @@ export class EtablishementComponent implements OnInit {
         link: ['', [Validators.required]],
       }),
     ]),
-    media: this.fb.array([
+    medias: this.fb.array([
       this.fb.group({
         url: ['', [Validators.required]],
         order: ['', [Validators.required]],
@@ -96,7 +82,7 @@ export class EtablishementComponent implements OnInit {
   }
 
   get mediaForms() {
-    return this.establishmentForm.get('media') as FormArray;
+    return this.establishmentForm.get('medias') as FormArray;
   }
 
   addMedia() {

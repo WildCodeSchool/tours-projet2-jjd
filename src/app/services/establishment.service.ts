@@ -8,14 +8,14 @@ import { Establishment } from '../core/models/establishment';
   providedIn: 'root',
 })
 export class EstablishmentService {
-  // http://open-reza.herokuapp.com/api/establishments/5cadddf54170bf000fdb82ec
-  configUrl = 'https://api.nasa.gov/planetary/apod?api_key=zaMnibcBzlEfTvN0DSJCY7FWbHMt15e5povg1c3b';
+  // https://api.nasa.gov/planetary/apod?api_key=zaMnibcBzlEfTvN0DSJCY7FWbHMt15e5povg1c3b
+  configUrl = 'http://open-reza.herokuapp.com/api/establishments/5cadddf54170bf000fdb82ec';
   constructor(private http: HttpClient) {
   }
-  public getEstablishment(): Observable<Establishment[]> {
+  public getEstablishment(): Observable<Establishment> {
     const obs1: Observable<any> = this.http.get(this.configUrl);
     const treatment = (param: any) => {
-      return param as Establishment[];
+      return param as Establishment;
     };
 
     return obs1.pipe(map(treatment));

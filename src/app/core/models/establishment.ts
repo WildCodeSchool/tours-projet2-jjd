@@ -12,13 +12,12 @@ export class Establishment {
     public contact: {
       phone: Number,
       email: String,
-      site: String,
     },
     public networks: [{
       name: string,
       link: string,
     }],
-    public media: [{
+    public medias: [{
       url: string,
       order: number,
     }],

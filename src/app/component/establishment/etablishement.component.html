@@ -37,13 +37,12 @@
                     <label for="type">Types</label>
                     <select id="type" [ngClass]="establishmentForm.get('type').errors ? 'is-invalid' : 'is-valid'"
                             class="custom-select" formControlName="type">
-                        <option *ngFor="let type of types" [ngValue]="type.name">
+                        <option *ngFor="let type of types">
                             {{ type.name }}
                         </option>
                     </select>
                 </div>
                 <div class="valid-feedback">
-
                 </div>
                 <div class="invalid-feedback">
                     <div *ngIf="establishmentForm.get('type').errors">
@@ -164,7 +163,7 @@
 
             <div class="form-row">
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="phone">phone</label>
                     <input pattern="[0-9]*"
                            [ngClass]="establishmentForm.get('contact').get('phone').errors ? 'is-invalid' : 'is-valid'"
@@ -183,7 +182,7 @@
                     </div>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="email">email</label>
                     <input [ngClass]="establishmentForm.get('contact').get('email').errors ? 'is-invalid' : 'is-valid'"
                            class="form-control"
@@ -196,23 +195,6 @@
                     <div class="invalid-feedback">
                         <div *ngIf="establishmentForm.get('contact').get('email').errors">
                             <span *ngIf="establishmentForm.get('contact').get('email').errors.required">Le champ email est requis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="site">site</label>
-                    <input [ngClass]="establishmentForm.get('contact').get('site').errors ? 'is-invalid' : 'is-valid'"
-                           class="form-control"
-                           id="site" name="site" type="text" formControlName="site">
-                    <div class="valid-feedback">
-                        <div *ngIf="establishmentForm.get('contact').get('site')">
-                            <span *ngIf="establishmentForm.get('contact').get('site')">Le champ site est bon</span>
-                        </div>
-                    </div>
-                    <div class="invalid-feedback">
-                        <div *ngIf="establishmentForm.get('contact').get('site').errors">
-                            <span *ngIf="establishmentForm.get('contact').get('site').errors.required">Le champ site est requis</span>
                         </div>
                     </div>
                 </div>
@@ -276,7 +258,7 @@
         </div>
 
 
-        <div formGroupName="media">
+        <div formGroupName="medias">
 
             <h3>Media</h3>
 
@@ -285,34 +267,34 @@
                 <div class="form-row">
 
                     <div class="form-group col-md-5">
-                        <input [ngClass]="establishmentForm.get('media').errors ? 'is-invalid' : 'is-valid'"
+                        <input [ngClass]="establishmentForm.get('medias').errors ? 'is-invalid' : 'is-valid'"
                                class="form-control" placeholder="url"
                                id="url" name="url" type="text" formControlName="url">
                         <div class="valid-feedback">
-                            <div *ngIf="establishmentForm.get('media')">
-                                <span *ngIf="establishmentForm.get('media')">Le champ url est bon</span>
+                            <div *ngIf="establishmentForm.get('medias')">
+                                <span *ngIf="establishmentForm.get('medias')">Le champ url est bon</span>
                             </div>
                         </div>
                         <div class="invalid-feedback">
-                            <div *ngIf="establishmentForm.get('media').errors">
-                                <span *ngIf="establishmentForm.get('media').errors.required">Le champ url est requis</span>
+                            <div *ngIf="establishmentForm.get('medias').errors">
+                                <span *ngIf="establishmentForm.get('medias').errors.required">Le champ url est requis</span>
                             </div>
                         </div>
                     </div>
 
 
                     <div class="form-group col-md-5">
-                        <input [ngClass]="establishmentForm.get('media').errors ? 'is-invalid' : 'is-valid'"
+                        <input [ngClass]="establishmentForm.get('medias').errors ? 'is-invalid' : 'is-valid'"
                                class="form-control" placeholder="order"
                                id="order" name="order" type="text" formControlName="order">
                         <div class="valid-feedback">
-                            <div *ngIf="establishmentForm.get('media')">
-                                <span *ngIf="establishmentForm.get('media')">Le champ order est bon</span>
+                            <div *ngIf="establishmentForm.get('medias')">
+                                <span *ngIf="establishmentForm.get('medias')">Le champ order est bon</span>
                             </div>
                         </div>
                         <div class="invalid-feedback">
-                            <div *ngIf="establishmentForm.get('media').errors">
-                                <span *ngIf="establishmentForm.get('media').errors.required">Le champ order est requis</span>
+                            <div *ngIf="establishmentForm.get('medias').errors">
+                                <span *ngIf="establishmentForm.get('medias').errors.required">Le champ order est requis</span>
                             </div>
                         </div>
                     </div>
