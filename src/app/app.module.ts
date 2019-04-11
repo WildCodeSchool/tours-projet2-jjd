@@ -10,9 +10,10 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { JwtModule } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,13 @@ import { ProfileComponent } from './component/profile/profile.component';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

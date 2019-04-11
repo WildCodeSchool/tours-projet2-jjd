@@ -10,7 +10,7 @@ import { Profile } from '../core/models/profile' ;
 export class ProfileService {
   constructor(private http: HttpClient) {
   }
-        configUrl=''
+        configUrl='http://open-reza.herokuapp.com/api/profiles/'
     
   
     public  getProfile():  Observable<Profile[]> {
