@@ -3,8 +3,6 @@
 <div class="container mt-5">
     
     <h1 class="BookingProfileTitle">Booking Profile</h1>
-
-    <p>{{booking | json}}</p>
     
     <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()"> 
         
@@ -14,13 +12,35 @@
                 
                 <div class="col">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder = "start" formControlName="start">
+                        <input [ngClass]="bookingForm.get('date').get('start').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="start" name="start" type="text" formControlName="start">
+                        
+                        <div class="valid-feedback">
+                            <div *ngIf="bookingForm.get('date').get('start')">
+                                <span *ngIf="bookingForm.get('date').get('start')">Le champ start est bon</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="bookingForm.get('date').get('start').errors">
+                                <span *ngIf="bookingForm.get('date').get('start').errors.required">Le champ start est requis</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="col">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder = "end" formControlName="end">
+                        <input [ngClass]="bookingForm.get('date').get('end').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="end" name="end" type="text" formControlName="end">
+                        
+                        <div class="valid-feedback">
+                            <div *ngIf="bookingForm.get('date').get('end')">
+                                <span *ngIf="bookingForm.get('date').get('end')">Le champ end est bon</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="bookingForm.get('date').get('end').errors">
+                                <span *ngIf="bookingForm.get('date').get('end').errors.required">Le champ end est requis</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -32,33 +52,87 @@
             <h3>Owner</h3>
             
             <div class="form-group">
-                <input class="form-control" type="text" placeholder = "name" formControlName="name">
+                <input [ngClass]="bookingForm.get('owner').get('name').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="name" name="name" type="text" formControlName="name">
+                
+                <div class="valid-feedback">
+                    <div *ngIf="bookingForm.get('owner').get('name')">
+                        <span *ngIf="bookingForm.get('owner').get('name')">Le champ start est bon</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="bookingForm.get('owner').get('name').errors">
+                        <span *ngIf="bookingForm.get('owner').get('name').errors.required">Le champ  est requis</span>
+                    </div>
+                </div>
             </div>
             
             <div formGroupName="address">
                 
-                <h4>Address</h4>
+                <h3>Address</h3>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder = "street" formControlName="street">
+                    <input [ngClass]="bookingForm.get('owner').get('address').get('street').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="street" name="street" type="text" formControlName="street">
+                    
+                    <div class="valid-feedback">
+                        <div *ngIf="bookingForm.get('owner').get('address').get('street')">
+                            <span *ngIf="bookingForm.get('owner').get('address').get('street')">Le champ street est bon</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="bookingForm.get('owner').get('address').get('street').errors">
+                            <span *ngIf="bookingForm.get('owner').get('address').get('street').errors.required">Le champ street est requis</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="form-row">
                     
                     <div class="form-group col-md-4">
-                        <input class="form-control" type="text" placeholder = "zipCode" formControlName="zipCode">
+                        <input [ngClass]="bookingForm.get('owner').get('address').get('zipCode').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="street" name="zipCode" type="text" formControlName="zipCode">
+                        
+                        <div class="valid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('zipCode')">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('zipCode')">Le champ zipCode est bon</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('zipCode').errors">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('zipCode').errors.required">Le champ zipCode est requis</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="form-group col-md-4">
-                        <input class="form-control" type="text" placeholder = "city" formControlName="city">
+                        <input [ngClass]="bookingForm.get('owner').get('address').get('city').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="city" name="city" type="text" formControlName="city">
+                        
+                        <div class="valid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('city')">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('street')">Le champ city est bon</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('city').errors">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('city').errors.required">Le champ city est requis</span>
+                            </div>
+                        </div>
                     </div >
                     
                     <div class="form-group col-md-4">
-                        <input class="form-control" type="text" placeholder="number" formControlName="number">
+                        <input [ngClass]="bookingForm.get('owner').get('address').get('number').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="number" name="number" type="text" formControlName="number">
+                        
+                        <div class="valid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('number')">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('number')">Le champ number est bon</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="bookingForm.get('owner').get('address').get('number').errors">
+                                <span *ngIf="bookingForm.get('owner').get('address').get('number').errors.required">Le champ number est requis</span>
+                            </div>
+                        </div>
                     </div>
                 </div>    
             </div>
-            
             
             <div formGroupName="contact">
                 <h3>Contact</h3>
@@ -66,13 +140,33 @@
                     
                     <div class="col">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder = "phone" formControlName="phone">
+                            <input [ngClass]="bookingForm.get('owner').get('contact').get('phone').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="phone" name="phone" type="text" formControlName="phone">
+                            <div class="valid-feedback">
+                                <div *ngIf="bookingForm.get('owner').get('contact').get('phone')">
+                                    <span *ngIf="bookingForm.get('owner').get('contact').get('phone')">Le champ phone est bon</span>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                <div *ngIf="bookingForm.get('owner').get('contact').get('phone').errors">
+                                    <span *ngIf="bookingForm.get('owner').get('contact').get('phone').errors.required">Le champ phone est requis</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="col">
                         <div class="form-group">
-                            <input class="form-control" type="email" placeholder = "email" formControlName="email">
+                            <input [ngClass]="bookingForm.get('owner').get('contact').get('email').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="email" name="email" type="email" formControlName="email">
+                            <div class="valid-feedback">
+                                <div *ngIf="bookingForm.get('owner').get('contact').get('email')">
+                                    <span *ngIf="bookingForm.get('owner').get('contact').get('email')">Le champ email est bon</span>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                <div *ngIf="bookingForm.get('owner').get('contact').get('email').errors">
+                                    <span *ngIf="bookingForm.get('owner').get('contact').get('email').errors.required">Le champ email est requis</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,13 +176,35 @@
         <h3>Numbers</h3>
         
         <div class="form-group">
-            <input class="form-control" type="number" placeholder = "numbers" formControlName="numbers">
+            <input [ngClass]="bookingForm.get('numbers').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="numbers" name="numbers" type="number" formControlName="numbers">
+            
+            <div class="valid-feedback">
+                <div *ngIf="bookingForm.get('numbers')">
+                    <span *ngIf="bookingForm.get('numbers')">Le champ numbers est bon</span>
+                </div>
+            </div>
+            <div class="invalid-feedback">
+                <div *ngIf="bookingForm.get('numbers').errors">
+                    <span *ngIf="bookingForm.get('numbers').errors.required">Le champ numbers est requis</span>
+                </div>
+            </div>
         </div>
         
         <h3>Establishment</h3>
         
         <div class="form-group">
-            <input class="form-control" type="text" placeholder = "establishment" formControlName="establishment">   
+            <input [ngClass]="bookingForm.get('establishment').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="establishment" name="establishment" type="text" formControlName="establishment">
+            
+            <div class="valid-feedback">
+                <div *ngIf="bookingForm.get('establishment')">
+                    <span *ngIf="bookingForm.get('establishment')">Le champ establishment est bon</span>
+                </div>
+            </div>
+            <div class="invalid-feedback">
+                <div *ngIf="bookingForm.get('establishment').errors">
+                    <span *ngIf="bookingForm.get('establishment').errors.required">Le champ establishment est requis</span>
+                </div>
+            </div>  
         </div>
         
         <button class="btn btn-success btn-block mt-4 mb-5" type="submit">Submit</button>
