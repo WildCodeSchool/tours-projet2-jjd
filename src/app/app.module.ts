@@ -13,6 +13,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
+import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     NgbdDatepickerPopup,
     BookingComponent,
     EtablishementComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
