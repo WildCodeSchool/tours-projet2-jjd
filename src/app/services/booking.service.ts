@@ -12,7 +12,7 @@ export class BookingService {
   
   constructor(private http: HttpClient) { }
   
-  configUrl=''
+  configUrl='http://open-reza.herokuapp.com/api/bookings/5cadddf64170bf000fdb8315'
   
   public getBooking(): Observable<Booking[]> {
     const obs1:Observable<any> = this.http.get(this.configUrl);
