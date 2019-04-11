@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
+import { EtablishementComponent } from './component/establishment/etablishement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
     FooterComponent,
     DashboardComponent,
     NgbdDatepickerPopup,
+    EtablishementComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
