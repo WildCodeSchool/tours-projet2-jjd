@@ -1,27 +1,21 @@
 export class Profile {
-    constructor(
+  constructor(
 
-        public firstName: string,
-        public lastName: string,
-        public siret: string,
-        public siren: string,
-        public key: string,
+public firstName: string,
+public lastName: string,
+public key: string,
 
-        public adress: {
-            street: string,
-            zipCode: string,
-            city: string,
-            number: string,
-        },
+public adress: {
+  street: string,
+  zipCode: string,
+  city: string,
+  number: string,
+},
 
-        public contact: {
-            fax: string,
-            phone: string,
-            email: string,
-        },
-    ) { }
-
-
-
-
+public contact: {
+  fax: string,
+  phone: string,
+  email: string,
+},
+) { }
 }

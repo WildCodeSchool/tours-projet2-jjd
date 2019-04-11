@@ -24,7 +24,6 @@ import { JwtModule } from '@auth0/angular-jwt';
     DashboardComponent,
     NgbdDatepickerPopup,
     ProfileComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -35,6 +34,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
+        whitelistedDomains: ['open-reza.herokuapp.com'],
         tokenGetter: () => {
           return localStorage.getItem('token');
         },
