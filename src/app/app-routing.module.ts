@@ -7,6 +7,7 @@ import { EtablishementComponent } from './component/establishment/etablishement.
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'establishment', component: EtablishementComponent  },
+  { path: 'establishment/:id', component: EtablishementComponent  },
   { path: 'dashboard/user/:userId', component: DashboardComponent },
 ];
 

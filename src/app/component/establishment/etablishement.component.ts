@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EstablishmentService } from '../../services/establishment.service';
 import { Establishment } from '../../core/models/establishment';
-import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-etablishement',
@@ -16,19 +17,21 @@ export class EtablishementComponent implements OnInit {
     { name: 'Computer' },
   ];
 
-  constructor(public establishmentService: EstablishmentService, private fb: FormBuilder) {
+  constructor(
+    public establishmentService: EstablishmentService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.establishmentService.getEstablishment().subscribe(
-      (param: Establishment) => {
-        this.establishment = param;
-        this.establishmentForm.patchValue(param);
-      },
-    );
-
-    this.establishmentForm.valueChanges.subscribe((value) => {
-      console.log('Valeurs : ', value);
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const id = params.get('id');
+      this.establishmentService.getEstablishment(id).subscribe(
+        (param: Establishment) => {
+          this.establishment = param;
+          this.establishmentForm.patchValue(param);
+        },
+      );
     });
   }
 
@@ -58,7 +61,6 @@ export class EtablishementComponent implements OnInit {
         order: ['', [Validators.required]],
       }),
     ]),
-
   });
 
   onSubmit() {
