@@ -1,0 +1,277 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+
+    <h1 class="text-center titleForm mb-4">Establishment Formulaire</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="establishmentForm">
+
+        <div class="row">
+
+            <div class="col">
+                <div class="form-group">
+                    <input [ngClass]="establishmentForm.get('name').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control" placeholder="name"
+                           name="name" type="text" formControlName="name">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('name')">
+                            <span *ngIf="establishmentForm.get('name')">Name is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('name').errors">
+                            <span *ngIf="establishmentForm.get('name').errors.required">Name is require</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="form-group">
+                    <select [ngClass]="establishmentForm.get('type').errors ? 'is-invalid' : 'is-valid'"
+                            class="custom-select" formControlName="type">
+                        <option *ngFor="let type of types">
+                            {{ type.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="valid-feedback">
+                    <div *ngIf="establishmentForm.get('type')">
+                        <span *ngIf="establishmentForm.get('type')">Type is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="establishmentForm.get('type').errors">
+                        <span *ngIf="establishmentForm.get('type').errors.required">Type is require</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div formGroupName="address">
+            <h2>Address</h2>
+            <div class="form-group">
+                <input [ngClass]="establishmentForm.get('address').get('street').errors ? 'is-invalid' : 'is-valid'"
+                       class="form-control"
+                       name="street" type="text" formControlName="street">
+                <div class="valid-feedback">
+                    <div *ngIf="establishmentForm.get('address').get('street')">
+                        <span *ngIf="establishmentForm.get('address').get('street')">Street is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="establishmentForm.get('address').get('street').errors">
+                        <span *ngIf="establishmentForm.get('address').get('street').errors.required">Street is reauire</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <input [ngClass]="establishmentForm.get('address').get('city').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control"
+                           name="city" type="text" formControlName="city">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('city')">
+                            <span *ngIf="establishmentForm.get('address').get('city')">City is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('city').errors">
+                            <span *ngIf="establishmentForm.get('address').get('city').errors.required">City is require</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <input [ngClass]="establishmentForm.get('address').get('zipCode').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control"
+                           name="zipCode" type="text" formControlName="zipCode">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('zipCode')">
+                            <span *ngIf="establishmentForm.get('address').get('zipCode')">ZipCode is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('zipCode').errors">
+                            <span *ngIf="establishmentForm.get('address').get('zipCode').errors.required">ZipCode is require</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <input [ngClass]="establishmentForm.get('address').get('number').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control"
+                           name="number" type="text" formControlName="number">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('number')">
+                            <span *ngIf="establishmentForm.get('address').get('number')">Number is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('address').get('number').errors">
+                            <span *ngIf="establishmentForm.get('address').get('number').errors.required">Number is require</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Content</h2>
+
+        <div class="form-group">
+            <textarea [ngClass]="establishmentForm.get('description').errors ? 'is-invalid' : 'is-valid'"
+                      class="form-control"
+                      name="description" type="text" formControlName="description"></textarea>
+            <div class="valid-feedback">
+                <div *ngIf="establishmentForm.get('description')">
+                    <span *ngIf="establishmentForm.get('description')">Content is valid</span>
+                </div>
+            </div>
+            <div class="invalid-feedback">
+                <div *ngIf="establishmentForm.get('description').errors">
+                    <span *ngIf="establishmentForm.get('description').errors.required">Content is require</span>
+                </div>
+            </div>
+        </div>
+
+        <div formGroupName="contact">
+            <h2>Contact</h2>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input pattern="[0-9]*"
+                           [ngClass]="establishmentForm.get('contact').get('phone').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control"
+                           name="phone" type="tel" formControlName="phone">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('contact').get('phone')">
+                            <span *ngIf="establishmentForm.get('address').get('phone')">Phone is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('contact').get('phone').errors">
+                            <span *ngIf="establishmentForm.get('contact').get('phone').errors.required">Phone is require</span>
+                            <span *ngIf="establishmentForm.get('contact').get('phone').errors.pattern">Phone is number</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <input [ngClass]="establishmentForm.get('contact').get('email').errors ? 'is-invalid' : 'is-valid'"
+                           class="form-control"
+                           name="email" type="email" formControlName="email">
+                    <div class="valid-feedback">
+                        <div *ngIf="establishmentForm.get('contact').get('email')">
+                            <span *ngIf="establishmentForm.get('contact').get('email')">Email is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="establishmentForm.get('contact').get('email').errors">
+                            <span *ngIf="establishmentForm.get('contact').get('email').errors.required">Email is require</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div formGroupName="networks">
+            <h2>Network</h2>
+            <div *ngFor="let network of networksForms.controls; let i=index" [formGroupName]="i">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <input [ngClass]="establishmentForm.get('networks').errors ? 'is-invalid' : 'is-valid'"
+                               class="form-control" placeholder="name"
+                               name="name" type="text" formControlName="name">
+                        <div class="valid-feedback">
+                            <div *ngIf="establishmentForm.get('networks')">
+                                <span *ngIf="establishmentForm.get('networks')">Name is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="establishmentForm.get('networks').errors">
+                                <span *ngIf="establishmentForm.get('networks').errors.required">Name is require</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <input [ngClass]="establishmentForm.get('networks').errors ? 'is-invalid' : 'is-valid'"
+                               class="form-control" placeholder="link"
+                               name="link" type="text" formControlName="link">
+                        <div class="valid-feedback">
+                            <div *ngIf="establishmentForm.get('networks')">
+                                <span *ngIf="establishmentForm.get('networks')">Link is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="establishmentForm.get('networks').errors">
+                                <span *ngIf="establishmentForm.get('networks').errors.required">Valid is require</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <button class="btn btn-block btn-danger" (click)="deleteNetworks(i)">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-info btn-block mb-3" (click)="addNetworks()">Add Networks</button>
+
+        </div>
+
+        <div formGroupName="medias">
+            <h2>Media</h2>
+            <div *ngFor="let network of mediaForms.controls; let i=index" [formGroupName]="i">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <input [ngClass]="establishmentForm.get('medias').errors ? 'is-invalid' : 'is-valid'"
+                               class="form-control" placeholder="url"
+                               id="url" name="url" type="text" formControlName="url">
+                        <div class="valid-feedback">
+                            <div *ngIf="establishmentForm.get('medias')">
+                                <span *ngIf="establishmentForm.get('medias')">Url is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="establishmentForm.get('medias').errors">
+                                <span *ngIf="establishmentForm.get('medias').errors.required">Url is required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <input [ngClass]="establishmentForm.get('medias').errors ? 'is-invalid' : 'is-valid'"
+                               class="form-control" placeholder="order"
+                               id="order" name="order" type="text" formControlName="order">
+                        <div class="valid-feedback">
+                            <div *ngIf="establishmentForm.get('medias')">
+                                <span *ngIf="establishmentForm.get('medias')">Order is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="establishmentForm.get('medias').errors">
+                                <span *ngIf="establishmentForm.get('medias').errors.required">Order is require</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <button class="btn btn-block btn-danger" (click)="deleteMedia(i)">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+            <button class="btn btn-info btn-block mb-3" (click)="addMedia()">Add Media</button>
+        </div>
+        <button class="btn btn-success btn-block mt-4 mb-5" type="submit">Save</button>
+
+    </form>
+
+</div>
+
+<app-footer></app-footer>

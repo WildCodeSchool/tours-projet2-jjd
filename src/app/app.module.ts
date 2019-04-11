@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,10 +10,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
-
-import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
+import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
+import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
@@ -26,14 +25,15 @@ import { JwtModule } from '@auth0/angular-jwt';
     DashboardComponent,
     NgbdDatepickerPopup,
     BookingComponent,
+    EtablishementComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule, HttpClientModule,
     NgbModule,
+    HttpClientModule,
     JwtModule.forRoot({
       config: {
         whitelistedDomains: ['open-reza.herokuapp.com'],
