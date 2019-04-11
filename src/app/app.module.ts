@@ -10,7 +10,10 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
+import { BookingComponent } from '../app/component/booking/booking.component';
 import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
@@ -22,12 +25,14 @@ import { JwtModule } from '@auth0/angular-jwt';
     FooterComponent,
     DashboardComponent,
     NgbdDatepickerPopup,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule, HttpClientModule,
     NgbModule,
     JwtModule.forRoot({
       config: {
