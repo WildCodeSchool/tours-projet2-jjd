@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
+import { JwtModule } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,14 @@ import { BookingComponent } from '../app/component/booking/booking.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule, HttpClientModule,
+    NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

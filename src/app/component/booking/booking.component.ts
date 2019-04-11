@@ -11,14 +11,15 @@ import { BookingService } from '../../services/booking.service';
 })
 export class BookingComponent implements OnInit {
 
-  public booking: Booking[] = [];
+  public booking: Booking;
   
   constructor(public bookingService: BookingService, private fb: FormBuilder) { }
   
   ngOnInit() {
     this.bookingService.getBooking().subscribe(
-      (param: Booking[]) => {
+      (param: Booking) => {
         this.booking = param;
+        this.bookingForm.patchValue(param);
       }
     )
   }
@@ -32,7 +33,7 @@ export class BookingComponent implements OnInit {
       name: ['', [Validators.required]],
       address: this.fb.group({
         street: ['', [Validators.required]],
-        zip: ['', [Validators.required]],
+        zipCode: ['', [Validators.required]],
         city: ['', [Validators.required]],
         number: ['', [Validators.required]],
       }),
