@@ -15,6 +15,7 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     BookingComponent,
     EtablishementComponent,
     ProfileComponent,
+    BookingListComponent,
   ],
   imports: [
     BrowserModule,

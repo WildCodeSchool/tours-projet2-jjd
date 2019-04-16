@@ -18,4 +18,12 @@ export class BookingService {
     };
     return obs1.pipe(map(treatment));
   }
+
+  public getListBooking(): Observable<Booking> {
+    const obs1:Observable<any> = this.http.get(`${this.configUrl}`);
+    const treatment = (param:any) => {
+      return param as Booking;
+    };
+    return obs1.pipe(map(treatment));
+  }
 }
