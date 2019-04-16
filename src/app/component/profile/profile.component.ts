@@ -33,6 +33,8 @@ export class ProfileComponent implements OnInit {
 
   });
 
+ 
+
   ngOnInit() {
     this.profileService.getProfile().subscribe(
       (profile: Profile) => {
@@ -41,6 +43,12 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  onSubmit() {}
-
+  onSubmit() {
+   
+   this.profileService.putProfile(this.profileForm.value).subscribe(
+    (profile: Profile) => {
+      this.profileForm.patchValue(profile);
+    },
+  );
+  }
 }

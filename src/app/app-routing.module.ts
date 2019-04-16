@@ -4,6 +4,7 @@ import { HomeComponent } from './component/home/home.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookingComponent } from './component/booking/booking.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
+import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
 import { ProfileComponent } from './component/profile/profile.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'dashboard/user/:userId', component: DashboardComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'booking/:id', component: BookingComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/list', component: ProfileListComponent },
+  { path: 'profile/update', component: ProfileComponent},
 ];
 
 @NgModule({
