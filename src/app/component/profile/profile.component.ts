@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../../core/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, private fb: FormBuilder) { }
+  constructor(public profileService: ProfileService, private fb: FormBuilder, private router: Router) { }
 
   profileForm = this.fb.group({
 
@@ -50,5 +51,8 @@ export class ProfileComponent implements OnInit {
       this.profileForm.patchValue(profile);
     },
   );
+    this.router.navigate(['/profile/list']);
   }
+
+
 }
