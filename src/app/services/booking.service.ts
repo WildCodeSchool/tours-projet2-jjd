@@ -19,10 +19,10 @@ export class BookingService {
     };
     return obs1.pipe(map(treatment));
   }
-  public getListBooking(id): Observable<Booking> {
+  public getListBooking(id): Observable<Booking[]> {
     const obs1:Observable<any> = this.http.get(`${this.configUrl1}/${id}/bookings`);
     const treatment = (param:any) => {
-      return param as Booking;
+      return param as Booking[];
     };
     return obs1.pipe(map(treatment));
   }
@@ -40,10 +40,10 @@ export class BookingService {
     };
     return obs1.pipe(map(treatment));
   }
-  public deleteBooking(id): Observable<Booking> {
+  public deleteBooking(id): Observable<Booking[]> {
     const obs1: Observable<any> = this.http.delete(`${this.configUrl}/${id}`);
     const treatment = (param: any) => {
-      return param as Booking;
+      return param as Booking[];
     };
     return obs1.pipe(map(treatment));
   }

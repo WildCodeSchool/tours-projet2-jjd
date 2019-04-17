@@ -8,7 +8,7 @@ import { ParamMap, ActivatedRoute } from '@angular/router';
   styleUrls: ['./booking-list.component.css'],
 })
 export class BookingListComponent implements OnInit {
-  public booking: Booking;
+  public booking: Booking[];
   public id: string;
   constructor(public bookingService: BookingService, private route: ActivatedRoute) { }
 
@@ -16,12 +16,14 @@ export class BookingListComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
     });
-    this.bookingService.getListBooking(this.id).subscribe((param: Booking) => {
-      console.log(this.booking = param);
+    this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
+      this.booking = param;
     });
   }
 
-  deleteBooking(id) {
-    this.bookingService.deleteBooking(id).subscribe();
+  deleteBooking(id, index) {
+    this.bookingService.deleteBooking(id).subscribe(() => {
+      this.booking.splice(index, 1);
+    });
   }
 }
