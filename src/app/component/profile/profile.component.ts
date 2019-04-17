@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, private fb: FormBuilder, private router: Router) { }
+  constructor(
+    public profileService: ProfileService,
+    private fb: FormBuilder,
+    private router: Router,
+    ) { }
 
   profileForm = this.fb.group({
 
@@ -34,8 +38,6 @@ export class ProfileComponent implements OnInit {
 
   });
 
- 
-
   ngOnInit() {
     this.profileService.getProfile().subscribe(
       (profile: Profile) => {
@@ -45,14 +47,12 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-   
-   this.profileService.putProfile(this.profileForm.value).subscribe(
-    (profile: Profile) => {
-      this.profileForm.patchValue(profile);
-    },
-  );
+
+    this.profileService.putProfile(this.profileForm.value).subscribe(
+      (profile: Profile) => {
+        this.profileForm.patchValue(profile);
+      },
+    );
     this.router.navigate(['/profile/list']);
   }
-
-
 }

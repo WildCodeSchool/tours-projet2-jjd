@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'booking/:id', component: BookingComponent },
   { path: 'profile/list', component: ProfileListComponent },
-  { path: 'profile/update', component: ProfileComponent},
+  { path: 'profile/update', component: ProfileComponent },
 ];
 
 @NgModule({
