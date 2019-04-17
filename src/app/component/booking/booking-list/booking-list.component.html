@@ -6,7 +6,7 @@
       <h2>Reservation list of Booking:</h2>
     </div>
     <div class="col-md-6">
-      <button class="btn btn-success float-right btn-block mb-3"><a [routerLink]="['/booking']">Create booking</a></button>
+      <button class="btn btn-success float-right btn-block mb-3"><a [routerLink]="['/booking/create']">Create booking</a></button>
       
     </div>
   </div>
@@ -27,7 +27,7 @@
           <td>{{booking.date.start}}</td>
           <td>{{booking.date.end}}</td>
           <td><button type="button" class="btn btn-outline-success"><a [routerLink]="['/booking/' + booking._id + '/update']">Update</a></button></td>
-          <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+          <td><button (click)="deleteBooking(booking._id)" type="button" class="btn btn-outline-danger">Delete</button></td>
         </tr>
       </ng-container>  
     </tbody>

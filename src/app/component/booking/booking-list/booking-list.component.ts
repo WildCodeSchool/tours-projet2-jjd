@@ -20,4 +20,8 @@ export class BookingListComponent implements OnInit {
       console.log(this.booking = param);
     });
   }
+
+  deleteBooking(id) {
+    this.bookingService.deleteBooking(id).subscribe();
+  }
 }
