@@ -15,6 +15,10 @@
     color: #fff;
 }
 
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #48b7ec;
+}
 
 .bar{
     background-color: rgba(141, 201, 230, 0.4);
@@ -33,11 +37,44 @@
 }
 
 .drop {
-
+border-color: #48b7ec;
 border-radius: 1px;
-border-color:  #ced4da;
+
 }
 
 .search {
 border-right: none;
+border-color: #48b7ec;
 }
+
+.progress {
+    
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  }
+  
+  .progress-bar {	
+    height: 18px;
+    background-color: #ee303c;  
+    border-radius: 4px; 
+    transition: 0.1s linear;  
+    transition-property: width, background-color;    
+  }
+  
+  .progress-striped .progress-bar { 	
+    background-color: #48b7ec; 
+    width: 100%; 
+    background-image: linear-gradient(
+          45deg, rgb(72,183,236) 25%, 
+          transparent 25%, transparent 50%, 
+          rgb(72,183,236) 50%, rgb(72,183,236) 75%,
+          transparent 75%, transparent); 
+    animation: progressAnimationStrike 2s;
+  }
+  
+  @keyframes progressAnimationStrike {
+       from { width: 0 }
+       to   { width: 100% }
+  }
+   
+
