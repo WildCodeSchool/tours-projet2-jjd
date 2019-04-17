@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from '../../core/models/booking';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BookingService } from '../../services/booking.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -10,13 +12,19 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class BookingComponent implements OnInit {
   public booking: Booking;
-  public id: string;
+  public id;
+  public establishmentId;
   constructor(
     public bookingService: BookingService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router,
     ) { }
   ngOnInit() {
+         this.route.paramMap.subscribe((params: ParamMap) => {
+      this.establishmentId = params.get('establishmentId');
+    });
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
       if (this.id) {
@@ -50,15 +58,23 @@ export class BookingComponent implements OnInit {
   });
   onSubmit() {
     if (this.id) {
-      this.bookingService.putBooking(this.id, this.bookingForm.value).subscribe(
+      const updateBooking = this.bookingService.putBooking(this.id, this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
+      if (updateBooking) {
+        this.toastr.success('success', 'Update');
+      }
+      this.router.navigateByUrl('')
     } else {
-      this.bookingService.postBooking(this.bookingForm.value).subscribe(
+      const createBooking = this.bookingService.postBooking(this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
+      if (createBooking) {
+        this.toastr.success('success', 'Create');
+      }
+      this.router.navigateByUrl('')
     }
   }
 }

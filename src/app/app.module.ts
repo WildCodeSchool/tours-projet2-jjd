@@ -16,6 +16,7 @@ import { EtablishementComponent } from './component/establishment/etablishement.
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,13 @@ import { BookingListComponent } from './component/booking/booking-list/booking-l
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+     timeOut: 3000,
+     positionClass: 'toast-bottom-right',
+     preventDuplicates: true,
+     closeButton: true,
+     progressBar: true,
+   }),
     JwtModule.forRoot({
       config: {
         whitelistedDomains: ['open-reza.herokuapp.com'],

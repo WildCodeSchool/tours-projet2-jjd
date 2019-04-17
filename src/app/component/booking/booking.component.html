@@ -190,22 +190,10 @@
             </div>
         </div>
 
-        <h2>Establishment</h2>
+        
+        <input value="{{establishmentId}}" [ngClass]="bookingForm.get('establishment').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="establishment" name="establishment" type="text" formControlName="establishment">
 
-        <div class="form-group">
-            <input [ngClass]="bookingForm.get('establishment').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="establishment" name="establishment" type="text" formControlName="establishment">
-
-            <div class="valid-feedback">
-                <div *ngIf="bookingForm.get('establishment')">
-                    <span *ngIf="bookingForm.get('establishment')">Establishment is valid</span>
-                </div>
-            </div>
-            <div class="invalid-feedback">
-                <div *ngIf="bookingForm.get('establishment').errors">
-                    <span *ngIf="bookingForm.get('establishment').errors.required">Establishment is required</span>
-                </div>
-            </div>
-        </div>
+        
 
         <button class="btn btn-success btn-block mt-4 mb-5" type="submit">Submit</button>
 
