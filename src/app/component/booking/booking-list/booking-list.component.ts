@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../../../services/booking.service';
 import { Booking } from '../../../core/models/booking';
-
+import { ParamMap, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-booking-list',
   templateUrl: './booking-list.component.html',
-  styleUrls: ['./booking-list.component.css']
+  styleUrls: ['./booking-list.component.css'],
 })
 export class BookingListComponent implements OnInit {
   public booking: Booking;
-  constructor(public bookingService: BookingService ) { }
+  public id: string;
+  constructor(public bookingService: BookingService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.bookingService.getListBooking().subscribe((param: Booking) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+    });
+    this.bookingService.getListBooking(this.id).subscribe((param: Booking) => {
       console.log(this.booking = param);
     });
   }

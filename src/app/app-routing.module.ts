@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'establishment', component: EtablishementComponent  },
   { path: 'establishment/:id', component: EtablishementComponent  },
   { path: 'dashboard/user/:userId', component: DashboardComponent },
-  { path: 'booking/list', component: BookingListComponent },
   { path: 'booking/:id', component: BookingComponent },
   { path: 'booking/:id/update', component: BookingComponent },
-  { path: 'booking/create', component: BookingComponent },
+  { path: 'establishment/:id/bookings', component: BookingListComponent },
+  { path: 'booking', component: BookingComponent },
   { path: 'profile', component: ProfileComponent },
 ];
 

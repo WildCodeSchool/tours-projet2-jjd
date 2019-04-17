@@ -10,18 +10,21 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class BookingComponent implements OnInit {
   public booking: Booking;
+  public id: string;
   constructor(
     public bookingService: BookingService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-  ) { }
+    ) { }
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id');
-      this.bookingService.getBooking(id).subscribe((param: Booking) => {
-        this.booking = param;
-        this.bookingForm.patchValue(param);
-      });
+      this.id = params.get('id');
+      if (this.id) {
+        this.bookingService.getBooking(this.id).subscribe((param: Booking) => {
+          this.booking = param;
+          this.bookingForm.patchValue(param);
+        });
+      }
     });
   }
   bookingForm = this.fb.group({
@@ -45,8 +48,17 @@ export class BookingComponent implements OnInit {
     numbers: ['', [Validators.required]],
     establishment: ['', [Validators.required]],
   });
-
   onSubmit() {
-    console.log(JSON.stringify(this.bookingForm.value));
+    if (this.id) {
+      this.bookingService.putBooking(this.id, this.bookingForm.value).subscribe(
+        (booking: Booking) =>
+          this.bookingForm.patchValue(booking),
+      );
+    } else {
+      this.bookingService.postBooking(this.bookingForm.value).subscribe(
+        (booking: Booking) =>
+          this.bookingForm.patchValue(booking),
+      );
+    }
   }
 }
