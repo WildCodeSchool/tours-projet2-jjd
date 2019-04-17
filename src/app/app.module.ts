@@ -16,6 +16,8 @@ import { EtablishementComponent } from './component/establishment/etablishement.
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
+import { LoginComponent } from './component/login/login.component';
+import { ForgotComponent } from './component/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,9 @@ import { ProfileListComponent } from './component/profile/profile-list/profile-l
     EtablishementComponent,
     ProfileComponent,
     ProfileListComponent,
+    LoginComponent,
+    ForgotComponent,
+
   ],
   imports: [
     BrowserModule,

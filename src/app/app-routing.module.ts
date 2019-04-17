@@ -6,6 +6,8 @@ import { BookingComponent } from './component/booking/booking.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { LoginComponent } from './component/login/login.component';
+import { ForgotComponent } from './component/forgot/forgot.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'booking/:id', component: BookingComponent },
   { path: 'profile/list', component: ProfileListComponent },
   { path: 'profile/update', component: ProfileComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgot', component: ForgotComponent },
 ];
 
 @NgModule({
