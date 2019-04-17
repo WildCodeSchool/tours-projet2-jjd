@@ -15,7 +15,7 @@ export class EtablishementComponent implements OnInit {
   public id: string;
   types = [
     { name: 'Bar' },
-    { name: 'Restaurent' },
+    { name: 'Restaurant' },
   ];
 
   constructor(

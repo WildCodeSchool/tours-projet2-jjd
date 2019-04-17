@@ -66,7 +66,7 @@
             </div>
 
             <div class="bar">
-                <h2 class="text-center m-4">Restaurent</h2>
+                <h2 class="text-center m-4">Restaurant</h2>
             </div>
 
             <div class="row">
@@ -131,7 +131,7 @@
             </div>
 
             <div class="bar">
-                <h2 class="text-center m-4">Bar</h2>
+                <h2 class="text-center m-4">Bar et Restaurant</h2>
             </div>
 
             <div class="row">
@@ -153,28 +153,7 @@
                 </ng-container>
             </div>
 
-            <div class="bar">
-                <h2 class="text-center m-4">Restaurent</h2>
-            </div>
 
-            <div class="row">
-                <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
-                    <div class="col-md-6 col-xl-3 mt-2">
-                        <div class="card">
-
-                            <div class="card-body">
-                                <p class="text-center"><a
-                                        [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
-                                </p>
-                                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                                <button type="button"
-                                        class="btn btn-outline-success btn-block mt-3">Reserver
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </ng-container>
-            </div>
 
 
         </div>
