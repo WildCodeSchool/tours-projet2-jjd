@@ -17,6 +17,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
      timeOut: 3000,
      positionClass: 'toast-bottom-right',

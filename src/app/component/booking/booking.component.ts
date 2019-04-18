@@ -24,6 +24,7 @@ export class BookingComponent implements OnInit {
   ngOnInit() {
          this.route.paramMap.subscribe((params: ParamMap) => {
       this.establishmentId = params.get('establishmentId');
+      this.bookingForm.patchValue({establishment: this.establishmentId});
     });
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
@@ -34,6 +35,7 @@ export class BookingComponent implements OnInit {
         });
       }
     });
+    
   }
   bookingForm = this.fb.group({
     date: this.fb.group({
@@ -54,7 +56,7 @@ export class BookingComponent implements OnInit {
       }),
     }),
     numbers: ['', [Validators.required]],
-    establishment: ['', [Validators.required]],
+    establishment: [this.establishmentId],
   });
   onSubmit() {
     if (this.id) {
