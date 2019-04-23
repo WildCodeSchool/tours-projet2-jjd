@@ -13,27 +13,27 @@ export class ProfileService {
   configUrl = 'http://open-reza.herokuapp.com/api/profiles/';
 
   public getProfile(): Observable<Profile> {
-    const obs1: Observable<any> = this.http.get(this.configUrl);
-    const treatment = (param:any) => {
-      return param as Profile;
+    const recup: Observable<any> = this.http.get(this.configUrl);
+    const treatment = (parameters:any) => {
+      return parameters as Profile;
     };
-    return obs1.pipe(map(treatment));
+    return recup.pipe(map(treatment));
   }
 
   public getListProfile():Observable<Profile> {
-    const obs1: Observable<any> = this.http.get(`${this.configUrl}`);
-    const treatment = (param:any) => {
-      return param as Profile;
+    const recup: Observable<any> = this.http.get(`${this.configUrl}`);
+    const treatment = (parameters:any) => {
+      return parameters as Profile;
     };
-    return obs1.pipe(map(treatment));
+    return recup.pipe(map(treatment));
   }
 
   public putProfile(profileForm: any):Observable<Profile> {
-    const obs2: Observable<any> = this.http.put(`${this.configUrl}`, profileForm);
+    const update: Observable<any> = this.http.put(`${this.configUrl}`, profileForm);
     const treatment = (response:any) => {
       return response as Profile;
     };
-    return obs2.pipe(map(treatment));
+    return update.pipe(map(treatment));
   }
 
 }

@@ -51,8 +51,8 @@ export class ProfileComponent implements OnInit {
     this.profileService.putProfile(this.profileForm.value).subscribe(
       (profile: Profile) => {
         this.profileForm.patchValue(profile);
+        this.router.navigate(['/profile/list']);
       },
     );
-    this.router.navigate(['/profile/list']);
   }
 }
