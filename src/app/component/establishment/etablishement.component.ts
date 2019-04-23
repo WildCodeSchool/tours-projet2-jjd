@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EstablishmentService } from '../../services/establishment.service';
 import { Establishment } from '../../core/models/establishment';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-etablishement',
@@ -11,30 +12,36 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class EtablishementComponent implements OnInit {
   public establishment: Establishment;
+  public id: string;
   types = [
     { name: 'Bar' },
-    { name: 'Restaurent' },
-    { name: 'Computer' },
+    { name: 'Restaurant' },
   ];
 
   constructor(
     public establishmentService: EstablishmentService,
     private fb: FormBuilder,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService) {
   }
 
+  // route update recover id establishment
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id');
-      this.establishmentService.getEstablishment(id).subscribe(
-        (param: Establishment) => {
-          this.establishment = param;
-          this.establishmentForm.patchValue(param);
-        },
-      );
+      this.id = params.get('id');
+      if (this.id) {
+        this.establishmentService.getEstablishment(this.id).subscribe(
+          (param: Establishment) => {
+            this.establishment = param;
+            this.establishmentForm.patchValue(param);
+          },
+        );
+      }
     });
   }
 
+  // establishmentForm
   establishmentForm = this.fb.group({
     name: ['', [Validators.required]],
     type: ['', [Validators.required]],
@@ -63,14 +70,37 @@ export class EtablishementComponent implements OnInit {
     ]),
   });
 
+  // establishmentForm onSubmit create or update, redirect to '/establishment/list'
   onSubmit() {
-    console.log(JSON.stringify(this.establishmentForm.value));
+    if (this.id) {
+      const updateEstablishment = this.establishmentService.putEstablishment(
+        this.id, this.establishmentForm.value).subscribe(
+        (establishment: Establishment) =>
+          this.establishmentForm.patchValue(establishment),
+      );
+      if (updateEstablishment) {
+        this.toastr.success('Success', 'Establishment Updater');
+      }
+      this.router.navigateByUrl('/establishment/list');
+    } else {
+      const createEstablishment = this.establishmentService.postEstablishment(
+        this.establishmentForm.value).subscribe(
+        (establishment: Establishment) =>
+          this.establishmentForm.patchValue(establishment),
+      );
+      if (createEstablishment) {
+        this.toastr.success('Success', 'Establishment Create');
+      }
+      this.router.navigateByUrl('/establishment/list');
+    }
   }
 
+  // get networks establishmentForm
   get networksForms() {
     return this.establishmentForm.get('networks') as FormArray;
   }
 
+  // add Networks establishmentForm
   addNetworks() {
     const networks = this.fb.group({
       name: ['', [Validators.required]],
@@ -79,14 +109,17 @@ export class EtablishementComponent implements OnInit {
     this.networksForms.push(networks);
   }
 
+  // delete networks establishmentForm
   deleteNetworks(i) {
     this.networksForms.removeAt(i);
   }
 
+  // get media establishmentForm
   get mediaForms() {
     return this.establishmentForm.get('medias') as FormArray;
   }
 
+  // add media form establishmentForm
   addMedia() {
     const medias = this.fb.group({
       url: ['', [Validators.required]],
@@ -95,6 +128,7 @@ export class EtablishementComponent implements OnInit {
     this.mediaForms.push(medias);
   }
 
+  // delete media establishmentForm
   deleteMedia(i) {
     this.mediaForms.removeAt(i);
   }

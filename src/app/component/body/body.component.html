@@ -1,236 +1,161 @@
 <div class="container mb-5">
 
-    <div class="search">
-        <div class="input-group">
-            <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input">
-            <div class="row">
-                <div class="col">
-                    <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-secondary drop" id="dropdownBasic1" ngbDropdownToggle>Select
-                        </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Bars</button>
-                            <button ngbDropdownItem>Restaurants</button>
-                            <button ngbDropdownItem>Bars & Restaurants</button>
+    <button (click)="profileOn(true)" class="btn btn-outline-danger">
+        Profile ON
+    </button>
+
+    <div *ngIf="on; then thenBlock else elseBlock"></div>
+
+    <ng-template #thenBlock>
+
+        <div class="search">
+
+            <div class="input-group">
+                <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input"
+                       [(ngModel)]='filterData'>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-secondary drop" id="dropdownBasic1" ngbDropdownToggle>Select
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem>Bars</button>
+                                <button ngbDropdownItem>Restaurants</button>
+                                <button ngbDropdownItem>Bars & Restaurants</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <span class="input-group-append">
+                    <span class="input-group-append">
           <button class="btn btn-outline-secondary" type="button">
               <i class="fa fa-search"></i>
           </button>
         </span>
-            </div>
-        </div>
-
-
-        <div class="bar">
-            <h2 class="text-center m-4">Bar</h2>
-        </div>
-        <div class="card-deck">
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
+            <div class="col-12 m-3">
+                <div class="alert alert-danger m-4 text-center"
+                     *ngIf="establishment &&(establishment | filter:filterData).length === 0">
+                    <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
+            <div class="bar">
+                <h2 class="text-center m-4">Bar</h2>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
+            <div class="row">
+                <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+                    <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-2">
+                        <div class="card">
+                            <ng-container *ngFor="let image of establishment.medias">
+                                <img [src]="image.url" class="img-fluid" alt="image establishment">
+                            </ng-container>
+                            <div class="card-body">
+                                <p class="text-center"><a
+                                        [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                                </p>
+                                <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                <button type="button"
+                                        class="btn btn-outline-success btn-block mt-3">Reserver
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
             </div>
 
-
-        </div>
-
-
-        <div class="card-deck mt-4">
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
+            <div class="bar">
+                <h2 class="text-center m-4">Restaurant</h2>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
+            <div class="row">
+                <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+                    <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-2">
+                        <div class="card">
+                            <ng-container *ngFor="let image of establishment.medias">
+                                <img [src]="image.url" class="img-fluid" alt="image establishment">
+                            </ng-container>
+                            <div class="card-body">
+                                <p class="text-center"><a
+                                        [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                                </p>
+                                <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                <button type="button"
+                                        class="btn btn-outline-success btn-block mt-3">Reserver
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
+                </ng-container>
             </div>
 
 
         </div>
 
-        <div class="restaurant">
-            <h2 class="text-center m-4">Restaurant</h2>
-        </div>
+    </ng-template>
 
-        <div class="card-deck">
+    <ng-template #elseBlock>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
+        <div class="search">
+
+            <div class="input-group">
+                <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-inputs"
+                       [(ngModel)]='filterData'>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-secondary drop" id="dropdownBasic1s" ngbDropdownToggle>Select
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1s">
+                                <button ngbDropdownItem>Bars</button>
+                                <button ngbDropdownItem>Restaurants</button>
+                                <button ngbDropdownItem>Bars & Restaurants</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
+                    <span class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">
+              <i class="fa fa-search"></i>
+          </button>
+        </span>
                 </div>
             </div>
 
 
-        </div>
-
-
-        <div class="card-deck mt-4">
-
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
+            <div class="col-12 m-3">
+                <div class="alert alert-danger m-4 text-center"
+                     *ngIf="allEstablishment &&(allEstablishment | filter:filterData).length === 0">
+                    <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
+            <div class="bar">
+                <h2 class="text-center m-4">Bar et Restaurant</h2>
             </div>
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
-                    </div>
-                </div>
-            </div>
+            <div class="row">
+                <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
+                    <div class="col-md-6 col-xl-3 mt-2">
+                        <div class="card">
 
-            <div class="col-md-6 col-xl-3 mt-2">
-                <div class="card">
-                    <img src="https://cdn.pixabay.com/photo/2016/10/22/20/34/wine-1761613_960_720.jpg"
-                         class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                        <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver</button>
+                            <div class="card-body">
+                                <p class="text-center"><a
+                                        [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
+                                </p>
+                                <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                <button type="button"
+                                        class="btn btn-outline-success btn-block mt-3">Reserver
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
             </div>
 
         </div>
 
+    </ng-template>
 
-    </div>
 
 </div>

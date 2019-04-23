@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <h2>Listes des Establishment</h2>
+            <span class="form-inline mr-3">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    [(ngModel)]='filterData'>
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+             </span>
+        </div>
+        <div class="col-md-6 mt-4">
+            <button class="btn btn-success float-right btn-block mb-3"><a [routerLink]="['/establishment/create']">Create
+                Establishment</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-12 m-3">
+        <div class="alert alert-danger m-4 text-center" *ngIf="establishments &&(establishments | filter:filterData).length === 0">
+            <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+        </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th><i class="fas fa-sync-alt"></i> ID</th>
+            <th><i class="fas fa-user"></i> Name</th>
+            <th><i class="fas fa-user"></i> Type</th>
+            <th><i class="fas fa-phone"></i> Phone</th>
+            <th>Booking</th>
+            <th><i class="fas fa-eye"></i> View</th>
+            <th><i class="fas fa-pen"></i> Update</th>
+            <th><i class="fas fa-trash-alt"></i> Suprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <ng-container *ngFor="let establishments of establishments| filter:filterData; let i = index ">
+            <tr>
+                <td>{{establishments._id}}</td>
+                <td><a [routerLink]="['/establishment/detail/' + establishments._id ]">{{establishments.name}}</a></td>
+                <td>{{establishments.type}}</td>
+                <td>{{establishments.contact.phone}}</td>
+                <td>
+                    <button class="btn btn-outline-success"><a
+                            [routerLink]="['/establishment/' + establishments._id +'/bookings']">Booking</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success"><a
+                            [routerLink]="['/establishment/detail/' + establishments._id]">View</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success"><a
+                            [routerLink]="['/establishment/' + establishments._id +'/update']">Update</a>
+                    </button>
+                </td>
+                <td>
+                    <button (click)="deleteEstablishment(establishments._id, i)" class="btn btn-outline-danger">
+                        Suprimer
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+<app-footer></app-footer>
