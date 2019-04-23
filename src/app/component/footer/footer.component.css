@@ -61,3 +61,44 @@
     color: white;
 }
 
+.pVert {
+    background-color: #589442;
+    height: 250px;
+    margin-bottom: 50px
+}
+
+.pJaune {
+    background-color: #fab822; 
+    height: 250px; 
+    margin-bottom: 50px
+}
+
+.resaFidele {
+    color: white; 
+    text-align: center; 
+    padding: 50px
+}
+
+.resaProgramme {
+    color: white; 
+    text-align: center; 
+    padding: 50px
+}
+
+.resaTitle {
+    color: white; 
+    text-align: center; 
+    padding: 30px
+}
+
+.resaRecrute {
+    color: white; 
+    text-align: center; 
+    padding: 30px
+}
+
+.resaOffre {
+    color: white; 
+    text-align: center; 
+    padding: 30px
+}
