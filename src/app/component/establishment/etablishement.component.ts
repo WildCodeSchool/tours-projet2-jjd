@@ -13,7 +13,7 @@ export class EtablishementComponent implements OnInit {
   public establishment: Establishment;
   types = [
     { name: 'Bar' },
-    { name: 'Restaurent' },
+    { name: 'Restaurant' },
     { name: 'Computer' },
   ];
 
