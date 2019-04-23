@@ -1,5 +1,5 @@
 .bg-color{
-    background-color: #fff;
+    
 }
 
 
@@ -38,9 +38,11 @@
 
 header{
  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+ background-color: rgba(34, 71, 114, 0.7);
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: rgba(28, 33, 35, 0.7);
     font-size: 20px;
+    font-weight: bold;
 }
