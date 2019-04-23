@@ -1,39 +1,30 @@
 <header class="d-flex justify-content-center">
-  <nav class="navbar navbar-expand-lg navbar-light bg-color">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-color">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
             <img class="logo" src="/assets/image/logo.png">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                </li>
+                <li>
+                    <a class="nav-link link" [routerLink]="['/']">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link link" [routerLink]="['/booking']">Booking</a>
+                </li>
+                <li>
+                    <a class="nav-link link" [routerLink]="['/establishment']">Establishment</a>
+                </li>
+                <li>
+                    <a class="nav-link link" [routerLink]="['/profile/list']">Profile</a>
+                </li>
+                <li>
+                    <a class="nav-link link" [routerLink]="['/login']">Sign-in</a>
+                </li>
+            </ul>
         </div>
-      <ul>
-      <li>
-        <a class="nav-link" [routerLink]="['/']">home</a>
-      </li>
-      <li>
-        <a class="nav-link" [routerLink]="['/establishment']">Establishment</a>
-      </li>
-      <li>
-        <a class="nav-link" [routerLink]="['/booking']">booking</a>
-      </li>
-      <li>
-        <a class="nav-link" [routerLink]="['/establishment/list']">Establishment</a>
-      </li>
-      <li>
-        <a class="nav-link" [routerLink]="['/profile']">profile</a>
-      </li>
-      <li>
-        <a class="nav-link link" [routerLink]="['/profile/list']">Profile</a>
-      </li>
-      <li>
-        <a class="nav-link link" [routerLink]="['/login']">Sign-in</a>
-      </li>
-    </ul>
-    <h2 class="slogan">the pleasure comes from eating ...</h2>
-    <input class="space" type="button" value="Corporate space">
-  </div>
-  </nav>
+    </nav>
 </header>
-
