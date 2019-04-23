@@ -59,23 +59,19 @@ export class BookingComponent implements OnInit {
   });
   onSubmit() {
     if (this.id) {
-      const updateBooking = this.bookingService
+      this.bookingService
       .putBooking(this.id, this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
-      if (updateBooking) {
-        this.toastr.success('success', 'Update');
-      }
+      this.toastr.success('success', 'Update');
       this.router.navigateByUrl('');
     } else {
-      const createBooking = this.bookingService.postBooking(this.bookingForm.value).subscribe(
+      this.bookingService.postBooking(this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
-      if (createBooking) {
-        this.toastr.success('success', 'Create');
-      }
+      this.toastr.success('success', 'Create');
       this.router.navigateByUrl('');
     }
   }

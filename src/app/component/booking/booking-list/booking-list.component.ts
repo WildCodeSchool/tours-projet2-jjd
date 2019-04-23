@@ -20,9 +20,11 @@ export class BookingListComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
     });
-    this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
-      this.booking = param;
-    });
+    if (this.id) {
+      this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
+        this.booking = param;
+      });
+    }
   }
 
   deleteBooking(id, index) {
