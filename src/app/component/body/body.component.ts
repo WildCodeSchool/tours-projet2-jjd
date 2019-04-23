@@ -7,6 +7,7 @@ import { EstablishmentService } from '../../services/establishment.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css'],
 })
+
 export class BodyComponent implements OnInit {
   public establishment: Establishment[];
   public allEstablishment: Establishment[];

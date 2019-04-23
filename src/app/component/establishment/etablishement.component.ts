@@ -16,6 +16,7 @@ export class EtablishementComponent implements OnInit {
   types = [
     { name: 'Bar' },
     { name: 'Restaurant' },
+    { name: 'Computer' },
   ];
 
   constructor(

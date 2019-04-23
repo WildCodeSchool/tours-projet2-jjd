@@ -22,6 +22,9 @@ from './component/establishment/establishment-list/establishment-list.component'
 import { FilterPipe } from './pipes/filter.pipe';
 import { EstablishmentDetailComponent }
 from './component/establishment/establishment-detail/establishment-detail.component';
+import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
+import { LoginComponent } from './component/login/login.component';
+import { ForgotComponent } from './component/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ from './component/establishment/establishment-detail/establishment-detail.compon
     EstablishmentListComponent,
     FilterPipe,
     EstablishmentDetailComponent,
+    ProfileListComponent,
+    LoginComponent,
+    ForgotComponent,
   ],
   imports: [
     BrowserModule,

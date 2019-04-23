@@ -1,36 +1,48 @@
 .bg-color{
-    background-color: rgba(16, 19, 18, 0.8);
+    
 }
 
-.slogan {
-    margin-right: auto;
-    color: #fff;
-    font-family: 'URW Chancery L', cursive;
-}
 
+.link{
+    
+    font-family: Gotham;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2c3037;
+
+}
 .logo {
     width: 40%;
     height: 80%;
-    border: solid;
-    border-color: #3b677c;
+  
 }
 
+.line{
+    text-align: right;
+}
+.display{
+    display: flex;
+}
 
-.space {
-    background-color: #3b677c;
-    border-radius: 5px;
-    border-color: #3b677c;
-    color: #fff;
-}
-.space:hover {
-    background: #1c1c1c;
-    color: #fff; 
-    border-color: #1c1c1c;
-}
 
 
 @media screen and (min-width: 200px) and (max-width: 940px) {
     .slogan { display: none }
     .logo { display: none }
-    .space { margin-top: 10px;}
+}
+
+header{
+ box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+ background-color: rgba(34, 71, 114, 0.7);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(28, 33, 35, 0.7);
+    font-size: 20px;
+    font-weight: bold;
 }
