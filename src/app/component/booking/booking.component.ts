@@ -22,9 +22,9 @@ export class BookingComponent implements OnInit {
     private router: Router,
     ) { }
   ngOnInit() {
-         this.route.paramMap.subscribe((params: ParamMap) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       this.establishmentId = params.get('establishmentId');
-      this.bookingForm.patchValue({establishment: this.establishmentId});
+      this.bookingForm.patchValue({ establishment: this.establishmentId });
     });
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
@@ -35,7 +35,6 @@ export class BookingComponent implements OnInit {
         });
       }
     });
-    
   }
   bookingForm = this.fb.group({
     date: this.fb.group({
@@ -60,14 +59,15 @@ export class BookingComponent implements OnInit {
   });
   onSubmit() {
     if (this.id) {
-      const updateBooking = this.bookingService.putBooking(this.id, this.bookingForm.value).subscribe(
+      const updateBooking = this.bookingService
+      .putBooking(this.id, this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
       if (updateBooking) {
         this.toastr.success('success', 'Update');
       }
-      this.router.navigateByUrl('')
+      this.router.navigateByUrl('');
     } else {
       const createBooking = this.bookingService.postBooking(this.bookingForm.value).subscribe(
         (booking: Booking) =>
@@ -76,7 +76,7 @@ export class BookingComponent implements OnInit {
       if (createBooking) {
         this.toastr.success('success', 'Create');
       }
-      this.router.navigateByUrl('')
+      this.router.navigateByUrl('');
     }
   }
 }

@@ -42,12 +42,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-     timeOut: 3000,
-     positionClass: 'toast-bottom-right',
-     preventDuplicates: true,
-     closeButton: true,
-     progressBar: true,
-   }),
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
+    }),
     JwtModule.forRoot({
       config: {
         whitelistedDomains: ['open-reza.herokuapp.com'],

@@ -12,12 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 export class BookingListComponent implements OnInit {
   public booking: Booking[];
   public id;
-  constructor(public bookingService: BookingService, private route: ActivatedRoute, private toastr: ToastrService) { }
+  constructor(public bookingService: BookingService,
+              private route: ActivatedRoute,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
-    })
+    });
     this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
       this.booking = param;
     });
@@ -27,11 +29,11 @@ export class BookingListComponent implements OnInit {
     const r = confirm('Are you sure ?');
     if (r) {
       this.bookingService.deleteBooking(id).subscribe(() => {
-      this.booking.splice(index, 1);
-    });
-    if (index) {
-      this.toastr.success('success', 'Delete');
-    }
+        this.booking.splice(index, 1);
+      });
+      if (index) {
+        this.toastr.success('success', 'Delete');
+      }
     }
   }
 }
