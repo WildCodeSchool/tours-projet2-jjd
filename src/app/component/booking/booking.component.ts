@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from '../../core/models/booking';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BookingService } from '../../services/booking.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -10,18 +12,28 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class BookingComponent implements OnInit {
   public booking: Booking;
+  public id;
+  public establishmentId;
   constructor(
     public bookingService: BookingService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-  ) { }
+    private toastr: ToastrService,
+    private router: Router,
+    ) { }
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id');
-      this.bookingService.getBooking(id).subscribe((param: Booking) => {
-        this.booking = param;
-        this.bookingForm.patchValue(param);
-      });
+      this.establishmentId = params.get('establishmentId');
+      this.bookingForm.patchValue({ establishment: this.establishmentId });
+    });
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+      if (this.id) {
+        this.bookingService.getBooking(this.id).subscribe((param: Booking) => {
+          this.booking = param;
+          this.bookingForm.patchValue(param);
+        });
+      }
     });
   }
   bookingForm = this.fb.group({
@@ -43,10 +55,24 @@ export class BookingComponent implements OnInit {
       }),
     }),
     numbers: ['', [Validators.required]],
-    establishment: ['', [Validators.required]],
+    establishment: [this.establishmentId],
   });
-
   onSubmit() {
-    console.log(JSON.stringify(this.bookingForm.value));
+    if (this.id) {
+      this.bookingService
+      .putBooking(this.id, this.bookingForm.value).subscribe(
+        (booking: Booking) =>
+          this.bookingForm.patchValue(booking),
+      );
+      this.toastr.success('success', 'Update');
+      this.router.navigateByUrl('');
+    } else {
+      this.bookingService.postBooking(this.bookingForm.value).subscribe(
+        (booking: Booking) =>
+          this.bookingForm.patchValue(booking),
+      );
+      this.toastr.success('success', 'Create');
+      this.router.navigateByUrl('');
+    }
   }
 }

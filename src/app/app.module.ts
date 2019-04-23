@@ -15,6 +15,9 @@ import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     BookingComponent,
     EtablishementComponent,
     ProfileComponent,
+    BookingListComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,14 @@ import { JwtModule } from '@auth0/angular-jwt';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
+    }),
     JwtModule.forRoot({
       config: {
         whitelistedDomains: ['open-reza.herokuapp.com'],
