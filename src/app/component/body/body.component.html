@@ -71,7 +71,7 @@
 
             <div class="row">
                 <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
-                    <div *ngIf="establishment.type == 'Restaurent'" class="col-md-6 col-xl-3 mt-2">
+                    <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-2">
                         <div class="card">
                             <ng-container *ngFor="let image of establishment.medias">
                                 <img [src]="image.url" class="img-fluid" alt="image establishment">
@@ -152,9 +152,6 @@
                     </div>
                 </ng-container>
             </div>
-
-
-
 
         </div>
 

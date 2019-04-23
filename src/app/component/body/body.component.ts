@@ -10,17 +10,15 @@ import { EstablishmentService } from '../../services/establishment.service';
 export class BodyComponent implements OnInit {
   public establishment: Establishment[];
   public allEstablishment: Establishment[];
-  public on:boolean;
+  public on: boolean = false;
 
   // search data
   public filterData;
 
-  constructor(public establishmentService: EstablishmentService,
-  ) {
+  constructor(public establishmentService: EstablishmentService) {
   }
 
   ngOnInit() {
-    this.getEstablishment();
     this.getAllEstablishment();
   }
 
@@ -41,9 +39,15 @@ export class BodyComponent implements OnInit {
       },
     );
   }
+
   // button on profile
   profileOn(param) {
-    return (param ? this.on = true : this.on = false);
+    this.on = param;
+    if (param) {
+      this.getEstablishment();
+    } else {
+      this.establishment = undefined;
+    }
   }
 
 }
