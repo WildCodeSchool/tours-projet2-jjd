@@ -49,7 +49,7 @@
           <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-2">
             <div class="card">
               <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid" alt="image establishment">
+                <img [src]="image.url" class="img-fluid card-img-top" alt="image establishment">
               </ng-container>
               <div class="card-body">
                 <p class="text-center"><a
@@ -73,7 +73,7 @@
           <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-2">
             <div class="card">
               <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid" alt="image establishment">
+                <img [src]="image.url" class="img-fluid card-img-top" alt="image establishment">
               </ng-container>
               <div class="card-body">
                 <p class="text-center"><a
@@ -136,7 +136,7 @@
         <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
           <div class="col-md-6 col-xl-3 mt-2">
             <div class="card">
-
+              <img src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}" class="img-fluid card-img-top" alt="image establishment">
               <div class="card-body">
                 <p class="text-center"><a
                     [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>

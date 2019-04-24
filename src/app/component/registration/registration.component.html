@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4 mb-4">
+
+    <h1 class="text-center title-form mb-4">Registration</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]='registrationForm'>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="email"></label>
+                <input [ngClass]="registrationForm.get('email').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='email' type="email" placeholder="Email" class="form-control"
+                       id="email"
+                       required name="email">
+                <div class="valid-feedback">
+                    <div *ngIf="registrationForm.get('email')">
+                        <span *ngIf="registrationForm.get('email')">Email is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="registrationForm.get('email').errors">
+                        <span *ngIf="registrationForm.get('email').errors.required">Email is required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="password"></label>
+                <input [ngClass]="registrationForm.get('password').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='password'
+                       type="password" placeholder="password" class="form-control" id="password" required
+                       name="password">
+                <div class="valid-feedback">
+                    <div *ngIf="registrationForm.get('password')">
+                        <span *ngIf="registrationForm.get('password')">Password is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="registrationForm.get('password').errors">
+                        <span *ngIf="registrationForm.get('password').errors.required"> Password is required</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-success btn-block">Registration</button>
+
+    </form>
+
+</div>
+
+<app-footer></app-footer>

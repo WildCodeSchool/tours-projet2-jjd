@@ -13,6 +13,7 @@ import { EstablishmentDetailComponent }
 from './component/establishment/establishment-detail/establishment-detail.component';
 import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
+import { RegistrationComponent } from './component/registration/registration.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'profile/list', component: ProfileListComponent },
   { path: 'profile/update', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: 'forgot', component: ForgotComponent },
 ];
 
