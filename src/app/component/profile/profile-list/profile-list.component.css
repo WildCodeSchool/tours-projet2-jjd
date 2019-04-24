@@ -1,5 +1,5 @@
 span {
-    color: blueviolet;
+    color: #589442;
     font-weight: bold;
     
 }
@@ -19,4 +19,9 @@ a {
 
 .picture{
     width: 100px;
+}
+
+.cadreProfile {
+    margin-left: 400px;
+    margin-right: 400px;
 }
