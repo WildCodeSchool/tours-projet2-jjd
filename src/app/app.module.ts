@@ -11,7 +11,7 @@ import { BodyComponent } from './component/body/body.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
-import { BookingListComponent} from './component/booking/booking-list/booking-list.component';
+import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
 import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileComponent } from './component/profile/profile.component';
