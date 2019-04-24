@@ -76,34 +76,35 @@
 .resaFidele {
     color: white; 
     text-align: center; 
-    padding: 40px;
-    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font: italic small-caps bold 30px/2 cursive;
 }
 
 .resaProgramme {
     color: white; 
     text-align: center; 
     padding: 40px;
-    font-size: 30px;
+    font: italic small-caps bold 30px/2 cursive;
 }
 
 .resaTitle {
     color: white; 
     text-align: center; 
     padding-top: 40px;
-    font-size: 20px;
+    font: italic small-caps bold 20px/2 cursive;
 }
 
 .resaRecrute {
     color: white; 
     text-align: center; 
     padding: 30px;
-    font-size: 25px;
+    font: italic small-caps bold 25px/2 cursive;
 }
 
 .resaOffre {
     color: white; 
     text-align: center; 
     padding-bottom: 30px;
-    font-size: 20px;
+    font: italic small-caps bold 20px/2 cursive;
 }

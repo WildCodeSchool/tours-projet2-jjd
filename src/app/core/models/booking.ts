@@ -1,5 +1,6 @@
 export class Booking {
   constructor(
+  public _id: string,
   public date: {
     start: number,
     end: number,
