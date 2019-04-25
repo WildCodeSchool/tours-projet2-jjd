@@ -45,7 +45,8 @@
                                 </ng-container>
 
                                 <div class="overlay">
-                                    <h2 class="info">{{establishment.name}}</h2>
+                                    <h2 class="info"><a
+                                            [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name}}</a></h2>
                                 </div>
 
                                 <div class="card-body p-0">
@@ -76,7 +77,8 @@
                                 </ng-container>
 
                                 <div class="overlay">
-                                    <h2 class="info">{{establishment.name}}</h2>
+                                    <h2 class="info"><a
+                                            [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name}}</a></h2>
                                 </div>
 
 
@@ -144,7 +146,8 @@
                                      class="img-fluid card-img-top p-1" alt="image establishment">
 
                                 <div class="overlay">
-                                    <h2 class="info">{{allEstablishment.name}}</h2>
+                                    <h2 class="info"><a
+                                            [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name}}</a></h2>
                                 </div>
 
                                 <div class="card-body p-0">
