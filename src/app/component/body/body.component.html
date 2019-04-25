@@ -35,7 +35,7 @@
     <div class="search">
 
       <div class="input-group">
-        <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input"
+        <input class="form-control py-2 search" type="search" placeholder="Search" id="example-search-input"
           [(ngModel)]='filterData'>
         <div class="row">
           <div class="col">
@@ -83,7 +83,7 @@
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Book</a>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Book</a>
                 </div>
               </div>
             </div>
@@ -186,7 +186,7 @@
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/' + allEstablishment._id + '/booking/create']">Reserver</a>
+                    [routerLink]="['/establishment/' + allEstablishment._id + '/booking/create']">Book</a>
                 </div>
               </div>
             </div>
@@ -195,14 +195,14 @@
       </div>
       <input type="checkbox" name="toogle" id="toogle"/>
       <div id="volet">
-        <p>Best restaurants of week : </p>
+        <p class="titleOpen">Best restaurants of week : </p>
         <ng-container *ngFor="let allEstablishment of allEstablishment | slice:0:1 ">
             <img
             src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}"
             class="img-fluid card-img-top p-1" alt="image establishment">
           <p>{{allEstablishment.name}}</p>
         </ng-container>
-        <label for="toogle">Star</label>
+        <label for="toogle">Open</label>
       </div>
     </div>
 
@@ -244,15 +244,14 @@
   <div class="row">
     <div class="col-sm-3">
       <div class="pVert">
-        <div class="resaTitle">OpenResa recute !</div>
-        <div class="resaRecrute">Rejoignez-nous</div>
-        <div class="resaOffre">Offre</div>
+        <div class="resaTitle">OpenResa is recruiting!</div>
+        <div class="resaRecrute">Join us</div>
       </div>
     </div>
     <div class="col-sm-9">
       <div class="pJaune">
-          <div class="resaFidele">Votre fidélité récompensée</div>
-          <div class="resaProgramme">Découvrir votre programme de fidélité</div>
+          <div class="resaFidele">Your loyalty rewarded</div>
+          <div class="resaProgramme">Discover your loyalty program</div>
       </div> 
     </div>
   </div>
