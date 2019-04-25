@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Establishment } from '../../core/models/establishment';
 import { EstablishmentService } from '../../services/establishment.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-body',
@@ -11,15 +12,19 @@ import { EstablishmentService } from '../../services/establishment.service';
 export class BodyComponent implements OnInit {
   public establishment: Establishment[];
   public allEstablishment: Establishment[];
-  public on: boolean = false;
+  public user = this.authenticationService.user;
 
   // search data
   public filterData;
 
-  constructor(public establishmentService: EstablishmentService) {
+  constructor(public establishmentService: EstablishmentService,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
+    if (this.user) {
+      this.getEstablishment();
+    }
     this.getAllEstablishment();
   }
 
@@ -39,16 +44,6 @@ export class BodyComponent implements OnInit {
         this.allEstablishment = param;
       },
     );
-  }
-
-  // button on profile
-  profileOn(param) {
-    this.on = param;
-    if (param) {
-      this.getEstablishment();
-    } else {
-      this.establishment = undefined;
-    }
   }
 
 }

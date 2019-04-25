@@ -30,14 +30,15 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div *ngIf="on; then thenBlock else elseBlock"></div>
+
+  <div *ngIf="user; then thenBlock else elseBlock"></div>
 
   <ng-template #thenBlock>
 
     <div class="search">
 
       <div class="input-group">
-        <input class="form-control py-2 search" type="search" placeholder="Search" id="example-search-input"
+        <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input"
           [(ngModel)]='filterData'>
         <div class="row">
           <div class="col">
@@ -51,11 +52,6 @@
               </div>
             </div>
           </div>
-          <span class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
         </div>
       </div>
 
@@ -72,18 +68,26 @@
 
       <div class="row">
         <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
-          <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-2">
+          <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-4">
             <div class="card">
-              <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid" alt="image establishment">
-              </ng-container>
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
+              <div class="hovereffect">
+                <ng-container *ngFor="let image of establishment.medias">
+                  <img [src]="image.url" class="img-fluid card-img-top p-1" alt="image establishment">
+                </ng-container>
+
+                <div class="overlay">
+                  <h2 class="info"><a
+                      [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name}}</a></h2>
+                </div>
+
+                <div class="card-body p-0">
+                  <p class="text-center mt-4"><a
+                      [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                  </p>
+                  <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                  <a class="btn btn-info btn-block mt-3"
+                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                </div>
               </div>
             </div>
           </div>
@@ -96,18 +100,27 @@
 
       <div class="row">
         <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
-          <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-2">
+          <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-4">
             <div class="card">
-              <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid" alt="image establishment">
-              </ng-container>
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
+              <div class="hovereffect">
+                <ng-container *ngFor="let image of establishment.medias">
+                  <img [src]="image.url" class="img-fluid card-img-top p-1" alt="image establishment">
+                </ng-container>
+
+                <div class="overlay">
+                  <h2 class="info"><a
+                      [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name}}</a></h2>
+                </div>
+
+
+                <div class="card-body p-0">
+                  <p class="text-center mt-4"><a
+                      [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                  </p>
+                  <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                  <a class="btn btn-info btn-block mt-3"
+                    [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                </div>
               </div>
             </div>
           </div>
@@ -138,11 +151,6 @@
               </div>
             </div>
           </div>
-          <span class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
         </div>
       </div>
 
@@ -160,16 +168,29 @@
 
       <div class="row">
         <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
-          <div class="col-md-6 col-xl-3 mt-2">
+          <div class="col-md-6 col-xl-3 mt-4">
             <div class="card">
 
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
+              <div class="hovereffect">
+
+                <img
+                  src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}"
+                  class="img-fluid card-img-top p-1" alt="image establishment">
+
+                <div class="overlay">
+                  <h2 class="info"><a
+                      [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name}}</a>
+                  </h2>
+                </div>
+
+                <div class="card-body p-0">
+                  <p class="text-center mt-3"><a
+                      [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
+                  </p>
+                  <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                  <a class="btn btn-info btn-block mt-3"
+                    [routerLink]="['/establishment/' + allEstablishment._id + '/booking/create']">Reserver</a>
+                </div>
               </div>
             </div>
           </div>
@@ -185,43 +206,43 @@
 
 <div class="question mb-5 mt-5">
   <h3 class="mb-5">Comment ça marche ? </h3>
-<div class="container mb-5 mt-5 d-flex">
-<div >
-  <img  class="icone" src="../../../assets/image/map.png">
-</div>
+  <div class="container mb-5 mt-5 d-flex">
+    <div>
+      <img class="icone" src="../../../assets/image/map.png">
+    </div>
 
-<div >
-  <img  class ="icone-1" src="../../../assets/image/reserv.png">
-</div>
-<div >
-  <img  class ="icone-2" src="../../../assets/image/sold.png">
-</div>
-</div>
-<div class="container d-flex">
-<div class="explication" >
-    <h6>Découvrez</h6>
-    <p>Les restaurants les plus populaires.</p>
+    <div>
+      <img class="icone-1" src="../../../assets/image/reserv.png">
+    </div>
+    <div>
+      <img class="icone-2" src="../../../assets/image/sold.png">
+    </div>
   </div>
-  <div class="explication-1" >
+  <div class="container d-flex">
+    <div class="explication">
+      <h6>Découvrez</h6>
+      <p>Les restaurants les plus populaires.</p>
+    </div>
+    <div class="explication-1">
       <h6>Réservez</h6>
       <p>Directement selon vos envies.</p>
     </div>
-    <div class="explication-2" >
-        <h6>Bénéficiez</h6>
-        <p>D'offres exclusives jusqu'à -50%.</p>
-      </div>
+    <div class="explication-2">
+      <h6>Bénéficiez</h6>
+      <p>D'offres exclusives jusqu'à -50%.</p>
+    </div>
   </div>
 </div>
 
 
 <div class="container download mb-5">
-<div>
-  <img class="disponible" src="../../../assets/image/appstore1.png">
-</div>
-<div class="app-title">La réservation comme jamais ! </div>
-<div>
-  <img class="phone-img" src="../../../assets/image/Capture du 2019-04-23 17-17-27.png">
-</div>
+  <div>
+    <img class="disponible" src="../../../assets/image/appstore1.png">
+  </div>
+  <div class="app-title">La réservation comme jamais ! </div>
+  <div>
+    <img class="phone-img" src="../../../assets/image/Capture du 2019-04-23 17-17-27.png">
+  </div>
   <div>
     <img class="disponible" src="../../../assets/image/badge_new.png">
   </div>

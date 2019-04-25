@@ -26,6 +26,8 @@ from './component/establishment/establishment-detail/establishment-detail.compon
 import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
 import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
+import { RegistrationComponent } from './component/registration/registration.component';
+import { FilterBookingPipe } from './pipes/filterbooking.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { ForgotComponent } from './component/forgot/forgot.component';
     LoginComponent,
     ForgotComponent,
     BookingListComponent,
+    RegistrationComponent,
+    FilterBookingPipe,
   ],
   imports: [
     BrowserModule,

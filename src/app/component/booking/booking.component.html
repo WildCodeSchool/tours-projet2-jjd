@@ -12,7 +12,7 @@
 
                 <div class="col">
                     <div class="form-group">
-                        <input [ngClass]="bookingForm.get('date').get('start').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="start" name="start" type="text" formControlName="start">
+                        <input [ngClass]="bookingForm.get('date').get('start').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="start" name="start" type="datetime-local" formControlName="start">
 
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('date').get('start')">
@@ -29,7 +29,7 @@
 
                 <div class="col">
                     <div class="form-group">
-                        <input [ngClass]="bookingForm.get('date').get('end').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="end" name="end" type="text" formControlName="end">
+                        <input [ngClass]="bookingForm.get('date').get('end').errors ? 'is-invalid' : 'is-valid'" class="form-control" placeholder="end" name="end" type="datetime-local" formControlName="end">
 
                         <div class="valid-feedback">
                             <div *ngIf="bookingForm.get('date').get('end')">

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4 mb-4">
+
+    <h1 class="text-center title-form mb-4">Registration</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]='loginForm'>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="email"></label>
+                <input [ngClass]="loginForm.get('email').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='email' type="email" placeholder="Email" class="form-control"
+                       id="email"
+                       required name="email">
+                <div class="valid-feedback">
+                    <div *ngIf="loginForm.get('email')">
+                        <span *ngIf="loginForm.get('email')">Email is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="loginForm.get('email').errors">
+                        <span *ngIf="loginForm.get('email').errors.required">Email is required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="password"></label>
+                <input [ngClass]="loginForm.get('password').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='password'
+                       type="password" placeholder="password" class="form-control" id="password" required
+                       name="password">
+                <div class="valid-feedback">
+                    <div *ngIf="loginForm.get('password')">
+                        <span *ngIf="loginForm.get('password')">Password is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="loginForm.get('password').errors">
+                        <span *ngIf="loginForm.get('password').errors.required"> Password is required</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-success btn-block">Registration</button>
+
+    </form>
+
+</div>
+
+<app-footer></app-footer>
