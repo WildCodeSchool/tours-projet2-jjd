@@ -1,18 +1,17 @@
 
 <app-navbar></app-navbar>
 
-<div class="card mt-5 mb-5">
-        <div class="card-body">
-          <h2 class="card-title">Profile</h2>
-          <h6 class="card-subtitle mb-2 text-muted">Informations</h6>
-          <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_960_720.png" class="picture">
-          <p class="card-text"><span>First Name : </span>{{profile?.firstName}}</p>
-          <p class="card-text"><span>Last Name :</span> {{profile?.lastName}}</p>
-          <p class="card-text"><span>Key :</span> {{profile?.key}}</p>
-          <button type="button" class="btn btn-success mr-2"><a [routerLink]="['/profile/update']">Update</a></button>
-          <button type="button" class="btn btn-danger ml-2">Delete</button>
-        </div>
-      </div>
-
+<div class="card-body">
+  <figure class="snip1336">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figcaption>
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample4.jpg" alt="profile-sample4" class="profile" />
+      <h2>{{profile?.firstName}} {{profile?.lastName}}<span>{{profile?.key}}</span></h2>
+      <p> {{profile?.contact.email}} </p>
+      <button type="button" class="btn btn-success mr-2"><a [routerLink]="['/profile/update']">Update</a></button>
+      <button type="button" class="btn btn-danger ml-2">Delete</button>
+    </figcaption>
+  </figure>
+</div>
 
 <app-footer></app-footer>

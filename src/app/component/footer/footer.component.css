@@ -61,3 +61,50 @@
     color: white;
 }
 
+.pVert {
+    background-color: #589442;
+    height: 250px;
+    margin-bottom: 50px
+}
+
+.pJaune {
+    background-color: #fab822; 
+    height: 250px; 
+    margin-bottom: 50px
+}
+
+.resaFidele {
+    color: white; 
+    text-align: center; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaProgramme {
+    color: white; 
+    text-align: center; 
+    padding: 40px;
+    font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaTitle {
+    color: white; 
+    text-align: center; 
+    padding-top: 40px;
+    font: italic small-caps bold 20px/2 cursive;
+}
+
+.resaRecrute {
+    color: white; 
+    text-align: center; 
+    padding: 30px;
+    font: italic small-caps bold 25px/2 cursive;
+}
+
+.resaOffre {
+    color: white; 
+    text-align: center; 
+    padding-bottom: 30px;
+    font: italic small-caps bold 20px/2 cursive;
+}
