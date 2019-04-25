@@ -193,7 +193,17 @@
           </div>
         </ng-container>
       </div>
-
+      <input type="checkbox" name="toogle" id="toogle"/>
+      <div id="volet">
+        <p>Best restaurants of week : </p>
+        <ng-container *ngFor="let allEstablishment of allEstablishment | slice:0:1 ">
+            <img
+            src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}"
+            class="img-fluid card-img-top p-1" alt="image establishment">
+          <p>{{allEstablishment.name}}</p>
+        </ng-container>
+        <label for="toogle">Star</label>
+      </div>
     </div>
 
   </ng-template>

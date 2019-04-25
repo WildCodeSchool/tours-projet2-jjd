@@ -160,11 +160,11 @@ background-color: #f3f4f5;
 }
 
 .bar {
-  background-color: rgba(141, 201, 230, 0.4);
+  background-color: rgba(250 , 184, 34, 1);
 }
 
 .restaurant {
-  background-color: rgba(141, 201, 230, 0.4);
+  background-color: rgba(250 , 184, 34, 1);
 }
 
 .input-group {
@@ -342,4 +342,54 @@ a:hover { color: #39ace7}
   margin-left: 14%;
   margin-right: 14%;
   color: white;
+}
+
+
+/*volet*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+*{box-sizing: border-box;}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/**************SHUTTER******************/
+#toogle{display: none;}
+label[for=toogle]{
+  position: absolute;
+  background: #fab822;
+  width: 150px;
+  height: 50px;
+  right: -100px;
+  top: 50px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  border-radius: 0 0 10px 10px;
+}
+#volet{
+  position: absolute;
+  top: 900px;
+  left: 0;
+  height: 350px;
+  width: 300px;
+  background: rgb(88,148,66);
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+
+#toogle:checked ~ #volet{
+  left: -300px;
+}
+/*********************************************/
+
+#page .content{
+  margin: 50px auto;
+  width: 1000px;
 }
