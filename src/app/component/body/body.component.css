@@ -29,19 +29,19 @@ font-size: 30px;
 
 .icone{
   width: 42%;
-  height: 66%;
+  height: 73%;
   margin-left: 50%;
   
 }
 .icone-1{
 width: 17%;
-height: 66%;
+height: 73%;
 margin-left: -3%;
 }
 
 .icone-2{
   width: 51%;
-  height: 70%;
+  height: 78%;
   margin-left: -65%;
   }
 
@@ -50,14 +50,14 @@ margin-left: -3%;
     text-align:center;
     font-size: 15px;
     margin-top: -6%;
-    margin-left: 4%;
+    margin-left: 6%;
   }
 
   .explication-1 {
     text-align:center;
     font-size: 15px;
     margin-top: -6%;
-    margin-left: 11%;
+    margin-left: 8%;
   }
 
   .explication-2 {
@@ -67,12 +67,16 @@ margin-left: -3%;
     margin-left: 11%;
   }
   
-  h6{
+  h6 {
     font-size: 15px;
     font-style: oblique;
+    text-decoration: underline;
   }
 
- 
+  h3 {
+    font-size: 1.75rem;
+    text-decoration: underline;
+}
 
 .download{
 position: relative;
@@ -160,8 +164,11 @@ background-color: #f3f4f5;
   text-align: center;
   background-color: rgba(141, 201, 230, 0.4);
   padding: 2%;
+  margin-left: 14%;
+  margin-right: 14%;
 }
 
 .logo {
   height: 122px;
 }
+
