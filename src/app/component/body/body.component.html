@@ -1,158 +1,169 @@
 <div class="container mb-5">
 
-  <button (click)="profileOn(true)" class="btn btn-outline-danger">
-    Profile ON
-  </button>
+    <div *ngIf="user; then thenBlock else elseBlock"></div>
 
-  <div *ngIf="on; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
 
-  <ng-template #thenBlock>
+        <div class="search">
 
-    <div class="search">
-
-      <div class="input-group">
-        <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input"
-          [(ngModel)]='filterData'>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-outline-secondary drop" id="dropdownBasic1" ngbDropdownToggle>Select
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem>Bars</button>
-                <button ngbDropdownItem>Restaurants</button>
-                <button ngbDropdownItem>Bars & Restaurants</button>
-              </div>
+            <div class="input-group">
+                <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-input"
+                       [(ngModel)]='filterData'>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-secondary drop" id="dropdownBasic1" ngbDropdownToggle>Select
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem>Bars</button>
+                                <button ngbDropdownItem>Restaurants</button>
+                                <button ngbDropdownItem>Bars & Restaurants</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <span class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
+
+            <div class="col-12 m-3">
+                <div class="alert alert-danger m-4 text-center"
+                     *ngIf="establishment &&(establishment | filter:filterData).length === 0">
+                    <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+                </div>
+            </div>
+
+            <div class="bar">
+                <h2 class="text-center m-4">Bar</h2>
+            </div>
+
+            <div class="row">
+                <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+                    <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-4">
+                        <div class="card">
+                            <div class="hovereffect">
+                                <ng-container *ngFor="let image of establishment.medias">
+                                    <img [src]="image.url" class="img-fluid card-img-top p-1" alt="image establishment">
+                                </ng-container>
+
+                                <div class="overlay">
+                                    <h2 class="info">{{establishment.name}}</h2>
+                                </div>
+
+                                <div class="card-body p-0">
+                                    <p class="text-center mt-4"><a
+                                            [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                                    </p>
+                                    <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                    <a class="btn btn-info btn-block mt-3"
+                                       [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="bar">
+                <h2 class="text-center m-4">Restaurant</h2>
+            </div>
+
+            <div class="row">
+                <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+                    <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-4">
+                        <div class="card">
+                            <div class="hovereffect">
+                                <ng-container *ngFor="let image of establishment.medias">
+                                    <img [src]="image.url" class="img-fluid card-img-top p-1" alt="image establishment">
+                                </ng-container>
+
+                                <div class="overlay">
+                                    <h2 class="info">{{establishment.name}}</h2>
+                                </div>
+
+
+                                <div class="card-body p-0">
+                                    <p class="text-center mt-4"><a
+                                            [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
+                                    </p>
+                                    <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                    <a class="btn btn-info btn-block mt-3"
+                                       [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+
         </div>
-      </div>
 
-      <div class="col-12 m-3">
-        <div class="alert alert-danger m-4 text-center"
-          *ngIf="establishment &&(establishment | filter:filterData).length === 0">
-          <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+    </ng-template>
+
+    <ng-template #elseBlock>
+
+        <div class="search">
+
+            <div class="input-group">
+                <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-inputs"
+                       [(ngModel)]='filterData'>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-secondary drop" id="dropdownBasic1s" ngbDropdownToggle>Select
+                            </button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1s">
+                                <button ngbDropdownItem>Bars</button>
+                                <button ngbDropdownItem>Restaurants</button>
+                                <button ngbDropdownItem>Bars & Restaurants</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 m-3">
+                <div class="alert alert-danger m-4 text-center"
+                     *ngIf="allEstablishment &&(allEstablishment | filter:filterData).length === 0">
+                    <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+                </div>
+            </div>
+
+            <div class="bar">
+                <h2 class="text-center m-4">Bar et Restaurant</h2>
+            </div>
+
+            <div class="row">
+                <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="card">
+
+                            <div class="hovereffect">
+
+                                <img src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}"
+                                     class="img-fluid card-img-top p-1" alt="image establishment">
+
+                                <div class="overlay">
+                                    <h2 class="info">{{allEstablishment.name}}</h2>
+                                </div>
+
+                                <div class="card-body p-0">
+                                    <p class="text-center mt-3"><a
+                                            [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
+                                    </p>
+                                    <ngbd-datepicker-popup></ngbd-datepicker-popup>
+                                    <a class="btn btn-info btn-block mt-3"
+                                       [routerLink]="['/establishment/' + allEstablishment._id + '/booking/create']">Reserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
         </div>
-      </div>
 
-      <div class="bar">
-        <h2 class="text-center m-4">Bar</h2>
-      </div>
-
-      <div class="row">
-        <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
-          <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-2">
-            <div class="card">
-              <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid card-img-top" alt="image establishment">
-              </ng-container>
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-
-      <div class="bar">
-        <h2 class="text-center m-4">Restaurant</h2>
-      </div>
-
-      <div class="row">
-        <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
-          <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-2">
-            <div class="card">
-              <ng-container *ngFor="let image of establishment.medias">
-                <img [src]="image.url" class="img-fluid card-img-top" alt="image establishment">
-              </ng-container>
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-
-
-    </div>
-
-  </ng-template>
-
-  <ng-template #elseBlock>
-
-    <div class="search">
-
-      <div class="input-group">
-        <input class="form-control py-2 search" type="search" placeholder="search" id="example-search-inputs"
-          [(ngModel)]='filterData'>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-outline-secondary drop" id="dropdownBasic1s" ngbDropdownToggle>Select
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1s">
-                <button ngbDropdownItem>Bars</button>
-                <button ngbDropdownItem>Restaurants</button>
-                <button ngbDropdownItem>Bars & Restaurants</button>
-              </div>
-            </div>
-          </div>
-          <span class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
-        </div>
-      </div>
-
-
-      <div class="col-12 m-3">
-        <div class="alert alert-danger m-4 text-center"
-          *ngIf="allEstablishment &&(allEstablishment | filter:filterData).length === 0">
-          <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
-        </div>
-      </div>
-
-      <div class="bar">
-        <h2 class="text-center m-4">Bar et Restaurant</h2>
-      </div>
-
-      <div class="row">
-        <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
-          <div class="col-md-6 col-xl-3 mt-2">
-            <div class="card">
-              <img src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}" class="img-fluid card-img-top" alt="image establishment">
-              <div class="card-body">
-                <p class="text-center"><a
-                    [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
-                </p>
-                <ngbd-datepicker-popup></ngbd-datepicker-popup>
-                <button type="button" class="btn btn-outline-success btn-block mt-3">Reserver
-                </button>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-
-    </div>
-
-  </ng-template>
+    </ng-template>
 
 
 </div>

@@ -27,6 +27,7 @@ import { ProfileListComponent } from './component/profile/profile-list/profile-l
 import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { FilterBookingPipe } from './pipes/filterbooking.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RegistrationComponent } from './component/registration/registration.com
     ForgotComponent,
     BookingListComponent,
     RegistrationComponent,
+    FilterBookingPipe,
   ],
   imports: [
     BrowserModule,

@@ -4,16 +4,29 @@
   <div class="row mt-3">
     <div class="col-md-6">
       <h2>Reservation list of Booking:</h2>
+      <span class="form-inline mr-3">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    [(ngModel)]='filterData'>
+             </span>
     </div>
     <div class="col-md-6">
       <button class="btn btn-success float-right btn-block mb-3"><a [routerLink]="['/establishment/' + id +'/booking/create']">Create booking</a></button>
-      
     </div>
+
+    <div class="col-12 m-3">
+      <div class="alert alert-danger m-4 text-center" *ngIf="booking &&(booking | filterbooking:filterData).length === 0">
+        <h3>No booking found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+      </div>
+    </div>
+
   </div>
   <table class="table table-striped table-bordered table-responsive">
     <thead>
       <tr>
         <th>Numbers</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
         <th>Date (Start)</th>
         <th>Date (End)</th>
         <th>Update</th>
@@ -21,9 +34,12 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let booking of booking; let i = index">
+      <ng-container *ngFor="let booking of booking | filterbooking:filterData; let i = index">
         <tr>
           <td>{{booking.numbers}}</td>
+          <td>{{booking.owner.name}}</td>
+          <td>{{booking.owner.contact.phone}}</td>
+          <td>{{booking.owner.contact.email}}</td>
           <td>{{booking.date.start}}</td>
           <td>{{booking.date.end}}</td>
           <td><button type="button" class="btn btn-outline-success"><a [routerLink]="['/booking/' + booking._id + '/update']">Update</a></button></td>

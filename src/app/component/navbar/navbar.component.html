@@ -18,9 +18,17 @@
                 <li>
                     <a class="nav-link link" [routerLink]="['/profile/list']">Profile</a>
                 </li>
-                <li>
-                    <a class="nav-link link" [routerLink]="['/login']">Login</a>
-                </li>
+                <div *ngIf="user; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                    <li>
+                        <a class="nav-link link" [routerLink]="[]" (click)="logout()">Logout</a>
+                    </li>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <li>
+                        <a class="nav-link link" [routerLink]="['/login']">Login</a>
+                    </li>
+                </ng-template>
                 <li>
                     <a class="nav-link link" [routerLink]="['/registration']">Registration</a>
                 </li>

@@ -14,22 +14,25 @@ from './component/establishment/establishment-detail/establishment-detail.compon
 import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'establishment/list', component: EstablishmentListComponent },
-  { path: 'establishment/detail/:id', component: EstablishmentDetailComponent },
-  { path: 'establishment/create', component: EtablishementComponent },
+  { path: 'establishment/list', component: EstablishmentListComponent, canActivate: [AuthGuard] },
+  { path: 'establishment/detail/:id',
+    component: EstablishmentDetailComponent },
+  { path: 'establishment/create', component: EtablishementComponent, canActivate: [AuthGuard] },
   { path: 'establishment/:id', component: EtablishementComponent },
-  { path: 'establishment/:id/update', component: EtablishementComponent },
-  { path: 'dashboard/user/:userId', component: DashboardComponent },
-  { path: 'booking/:id', component: BookingComponent },
-  { path: 'booking/:id/update', component: BookingComponent },
-  { path: 'establishment/:id/bookings', component: BookingListComponent },
-  { path: 'establishment/:establishmentId/booking/create', component: BookingComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'profile/list', component: ProfileListComponent },
-  { path: 'profile/update', component: ProfileComponent },
+  { path: 'establishment/:id/update', component: EtablishementComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard/user/:userId', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'booking/:id', component: BookingComponent, canActivate: [AuthGuard] },
+  { path: 'booking/:id/update', component: BookingComponent, canActivate: [AuthGuard] },
+  { path: 'establishment/:id/bookings', component: BookingListComponent, canActivate: [AuthGuard] },
+  { path: 'establishment/:establishmentId/booking/create',
+    component: BookingComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile/list', component: ProfileListComponent, canActivate: [AuthGuard] },
+  { path: 'profile/update', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'forgot', component: ForgotComponent },

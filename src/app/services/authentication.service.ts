@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Profile } from '../core/models/profile';
-import { map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  public user:boolean;
 
   constructor(private http: HttpClient) {
   }
 
-  // 'http://open-reza.herokuapp.com/api/auth/signup';
-  configUrl = null;
+  configUrl = 'http://open-reza.herokuapp.com/api/auth/signin';
+  login(email: string, password: string) {
+    return this.http.post<any>(`${this.configUrl}`, { email, password })
+      .pipe(tap((user) => {
+        if (user) {
+          this.user = true;
+          localStorage.setItem('token', user.token);
+        }
+      }));
+  }
 
-  public postAuthentication(profile: any): Observable<Profile> {
-    const recup: Observable<any> = this.http.post(`${this.configUrl}`, profile);
-    const treatment = (parameters: any) => {
-      return parameters as Profile;
-    };
-    return recup.pipe(map(treatment));
+  logout() {
+    localStorage.removeItem('token');
+    this.user = false;
   }
 }

@@ -65,14 +65,14 @@ export class BookingComponent implements OnInit {
           this.bookingForm.patchValue(booking),
       );
       this.toastr.success('success', 'Update');
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('/');
     } else {
       this.bookingService.postBooking(this.bookingForm.value).subscribe(
         (booking: Booking) =>
           this.bookingForm.patchValue(booking),
       );
       this.toastr.success('success', 'Create');
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('/');
     }
   }
 }

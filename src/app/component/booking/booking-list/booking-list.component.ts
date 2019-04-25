@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class BookingListComponent implements OnInit {
   public booking: Booking[];
   public id;
+  // search data
+  public filterData;
   constructor(public bookingService: BookingService,
               private route: ActivatedRoute,
               private toastr: ToastrService) { }
