@@ -36,13 +36,13 @@ font-size: 30px;
 .icone-1{
 width: 17%;
 height: 73%;
-margin-left: -3%;
+margin-left: 35%;
 }
 
 .icone-2{
   width: 51%;
   height: 78%;
-  margin-left: -65%;
+  margin-left: -26%;
   }
 
 
@@ -73,9 +73,65 @@ margin-left: -3%;
     text-decoration: underline;
   }
 
+  .w-100 {
+    width: 100% !important;
+    height: 400px;
+}
+
+.pVert {
+  background-color: #589442;
+  height: 250px;
+  margin-bottom: 50px
+}
+
+.pJaune {
+  background-color: #fab822; 
+  height: 250px; 
+  margin-bottom: 50px
+}
+
+.resaFidele {
+  color: white; 
+  text-align: center; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaProgramme {
+  color: white; 
+  text-align: center; 
+  padding: 40px;
+  font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaTitle {
+  color: white; 
+  text-align: center; 
+  padding-top: 40px;
+  font: italic small-caps bold 20px/2 cursive;
+}
+
+.resaRecrute {
+  color: white; 
+  text-align: center; 
+  padding: 30px;
+  font: italic small-caps bold 25px/2 cursive;
+}
+
+.resaOffre {
+  color: white; 
+  text-align: center; 
+  padding-bottom: 30px;
+  font: italic small-caps bold 20px/2 cursive;
+}
+
+
   h3 {
     font-size: 1.75rem;
     text-decoration: underline;
+    padding-top: 2%;
+  
 }
 
 .download{
@@ -281,4 +337,9 @@ a:hover { color: #39ace7}
   transition-delay:.2s;
 }
 
-
+.question{
+  background-color: #17a2b8;
+  margin-left: 14%;
+  margin-right: 14%;
+  color: white;
+}
