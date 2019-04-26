@@ -1,3 +1,7 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+
 .btn-search {
   background: #424242;
   border-radius: 0;
@@ -354,8 +358,6 @@ a:hover { color: #39ace7}
 
 
 /*volet*/
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 *{box-sizing: border-box;}
 
 a{
