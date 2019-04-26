@@ -74,16 +74,16 @@
 
                 <div class="overlay">
                   <h2 class="info"><a
-                      [routerLink]="['/establishment/detail/', 'establishment._id']">{{establishment.name}}</a></h2>
+                      [routerLink]="['/establishment/detail/' + establishment._id]">{{establishment.name}}</a></h2>
                 </div>
 
                 <div class="card-body p-0">
                   <p class="text-center mt-4"><a
-                      [routerLink]="['/establishment/detail/', 'establishment._id']">{{establishment.name| slice:0:15}}</a>
+                      [routerLink]="['/establishment/detail/ + establishment._id']">{{establishment.name| slice:0:15}}</a>
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/', 'establishment._id', '/booking/create']">Book</a>
+                    [routerLink]="['/establishment/ + establishment._id + /booking/create']">Book</a>
                 </div>
               </div>
             </div>
@@ -106,17 +106,17 @@
 
                 <div class="overlay">
                   <h2 class="info"><a
-                      [routerLink]="['/establishment/detail/', 'establishment._id']">{{establishment.name}}</a></h2>
+                      [routerLink]="['/establishment/detail/ + establishment._id']">{{establishment.name}}</a></h2>
                 </div>
 
 
                 <div class="card-body p-0">
                   <p class="text-center mt-4"><a
-                      [routerLink]="['/establishment/detail/', 'establishment._id']">{{establishment.name| slice:0:15}}</a>
+                      [routerLink]="['/establishment/detail/ + establishment._id']">{{establishment.name| slice:0:15}}</a>
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/', 'establishment._id', '/booking/create']">Book</a>
+                    [routerLink]="['/establishment/ + establishment._id + /booking/create']">Book</a>
                 </div>
               </div>
             </div>
@@ -176,17 +176,17 @@
 
                 <div class="overlay">
                   <h2 class="info"><a
-                      [routerLink]="['/establishment/detail/', 'allEstablishment._id']">{{allEstablishment.name}}</a>
+                      [routerLink]="['/establishment/detail/' + allEstablishment._id]">{{allEstablishment.name}}</a>
                   </h2>
                 </div>
 
                 <div class="card-body p-0">
                   <p class="text-center mt-3"><a
-                      [routerLink]="['/establishment/detail/',  'allEstablishment._id']">{{allEstablishment.name| slice:0:15}}</a>
+                      [routerLink]="['/establishment/detail/' +  allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
                   </p>
                   <ngbd-datepicker-popup></ngbd-datepicker-popup>
                   <a class="btn btn-info btn-block mt-3"
-                    [routerLink]="['/establishment/', 'allEstablishment._id', '/booking/create']">Book</a>
+                    [routerLink]="['/establishment/ + allEstablishment._id + /booking/create']">Book</a>
                 </div>
               </div>
             </div>

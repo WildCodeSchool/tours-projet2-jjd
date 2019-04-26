@@ -1,50 +1,59 @@
 
-<div class="container mt-3" *ngIf="establishment">
-    <div class="row">
 
-        <div class="col-sm-12">
-
-            <h1 class="text-center">{{establishment.name}}</h1>
-
-            <div class="card mb-3">
-
-                <ng-container *ngFor="let establishment of establishment.medias">
-                    <img [src]="establishment.url" class="img-fluid" alt="image establishment">
-                </ng-container>
-
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h2 class="card-title text-center">{{establishment.name}}</h2>
-                        </div>
-                        <div class="col-sm-2">
-                            <p class="float-right" style="font-size: 23px;">{{establishment.type}}</p>
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <p><strong>Content : </strong></p>
-                            <p class="card-text mt-3">{{establishment.description}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="card-text"><strong>Phone : </strong>{{establishment.contact.phone}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="card-text"><strong>Email : </strong>{{establishment.contact.email}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="card-text"><strong>City : </strong>{{establishment.address.city}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="card-text"><strong>Number : </strong>{{establishment.address.number}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="card-text"><strong>Street : </strong>{{establishment.address.street}}</p>
-                        </div>
-                        <div class="col-sm-6 mb-4">
-                            <p class="card-text"><strong>ZipCode : </strong>{{establishment.address.zipCode}}</p>
-                        </div>
-
-                        <div class="col-md-12"><h4>Follow us on the social network</h4></div>
-
+<div class="container d-flex justify-content-center mt-5" *ngIf="establishment">
+    <div class="span3 well">
+        
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><ng-container *ngFor="let establishment of establishment.medias | slice:0:1 ">
+            <img [src]="establishment.url" class="img-fluid" alt="image establishment">
+        </ng-container></a>
+        <h3 class="d-flex justify-content-center">{{establishment.name}}</h3>
+        <em class="d-flex justify-content-center">click on the picture for more</em>
+        <button class="btn btn-outline-success float-center"><a
+            [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reservation</a>
+    </button>
+		
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">More About restaurants</h4>
+                    </div>
+                <div class="modal-body">
+                    
+                    <a><ng-container *ngFor="let establishment of establishment.medias | slice:0:1">
+                        <img [src]="establishment.url" class="img-fluid" alt="image establishment">
+                    </ng-container></a>
+                    <h3 class="media-heading d-flex justify-content-center">{{establishment.name}}</h3>
+                    <div class="col-sm-12 mb-3">
+                        <p><strong>Content : </strong></p>
+                        <p class="card-text mt-3">{{establishment.description}}</p>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="col-sm-6">
+                        <p class="card-text"><strong>Phone : </strong>{{establishment.contact.phone}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="card-text"><strong>Email : </strong>{{establishment.contact.email}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="card-text"><strong>City : </strong>{{establishment.address.city}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="card-text"><strong>Number : </strong>{{establishment.address.number}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="card-text"><strong>Street : </strong>{{establishment.address.street}}</p>
+                    </div>
+                    <div class="col-sm-6 mb-4">
+                        <p class="card-text"><strong>ZipCode : </strong>{{establishment.address.zipCode}}</p>
+                    </div>
+                    <div class="col-md-12"><h4>Follow us on the social network</h4></div>
+                        
                         <ng-container *ngFor="let establishment of establishment.networks">
                             <div class="col-sm-6">
                                 <p>{{establishment.name}}</p>
@@ -53,16 +62,13 @@
                                 <p>{{establishment.link}}</p>
                             </div>
                         </ng-container>
-
-                    </div>
-
-                    <button class="btn btn-outline-success float-right"><a
-                            [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reservation</a>
-                    </button>
-
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                    
                 </div>
             </div>
-
         </div>
     </div>
 </div>
