@@ -366,7 +366,11 @@ a{
 
 
 /**************SHUTTER******************/
-#toogle{display: none;}
+#toogle{
+  display: none;
+}
+
+
 label[for=toogle]{
   position: absolute;
   background: #fab822;
@@ -390,6 +394,7 @@ label[for=toogle]{
   background: rgb(88,148,66);
   -webkit-transition: all .5s ease-in;
   transition: all .5s ease-in;
+  
 }
 
 #toogle:checked ~ #volet{
@@ -401,3 +406,4 @@ label[for=toogle]{
   margin: 50px auto;
   width: 1000px;
 }
+
