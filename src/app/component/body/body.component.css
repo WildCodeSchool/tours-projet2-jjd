@@ -36,13 +36,13 @@ font-size: 30px;
 .icone-1{
 width: 17%;
 height: 73%;
-margin-left: -3%;
+margin-left: 35%;
 }
 
 .icone-2{
   width: 51%;
   height: 78%;
-  margin-left: -65%;
+  margin-left: -26%;
   }
 
 
@@ -57,14 +57,22 @@ margin-left: -3%;
     text-align:center;
     font-size: 15px;
     margin-top: -6%;
-    margin-left: 8%;
+    margin-left: 15%;
   }
+
+
+.titleOpen{
+  color: white;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 
   .explication-2 {
     text-align:center;
     font-size: 15px;
     margin-top: -6%;
-    margin-left: 11%;
+    margin-left: 16%;
   }
 
   h6 {
@@ -73,9 +81,65 @@ margin-left: -3%;
     text-decoration: underline;
   }
 
+  .w-100 {
+    width: 100% !important;
+    height: 400px;
+}
+
+.pVert {
+  background-color: #589442;
+  height: 250px;
+  margin-bottom: 50px
+}
+
+.pJaune {
+  background-color: #fab822; 
+  height: 250px; 
+  margin-bottom: 50px
+}
+
+.resaFidele {
+  color: white; 
+  text-align: center; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaProgramme {
+  color: white; 
+  text-align: center; 
+  padding: 40px;
+  font: italic small-caps bold 30px/2 cursive;
+}
+
+.resaTitle {
+  color: white; 
+  text-align: center; 
+  padding-top: 40px;
+  font: italic small-caps bold 20px/2 cursive;
+}
+
+.resaRecrute {
+  color: white; 
+  text-align: center; 
+  padding: 30px;
+  font: italic small-caps bold 25px/2 cursive;
+}
+
+.resaOffre {
+  color: white; 
+  text-align: center; 
+  padding-bottom: 30px;
+  font: italic small-caps bold 20px/2 cursive;
+}
+
+
   h3 {
     font-size: 1.75rem;
     text-decoration: underline;
+    padding-top: 2%;
+  
 }
 
 .download{
@@ -104,11 +168,11 @@ background-color: #f3f4f5;
 }
 
 .bar {
-  background-color: rgba(141, 201, 230, 0.4);
+  background-color: rgba(250 , 184, 34, 1);
 }
 
 .restaurant {
-  background-color: rgba(141, 201, 230, 0.4);
+  background-color: rgba(250 , 184, 34, 1);
 }
 
 .input-group {
@@ -116,14 +180,14 @@ background-color: #f3f4f5;
 }
 
 .drop {
-  border-color: #48b7ec;
+  border-color: rgb(88,148,66);
   border-radius: 1px;
 
 }
 
 .search {
   border-right: none;
-  border-color: #48b7ec;
+  border-color: rgb(88,148,66);
 }
 
 .progress {
@@ -205,7 +269,7 @@ a:hover { color: #39ace7}
 
 .hovereffect .overlay {
   width:100%;
-  height:100%;
+  height:90%;
   position:absolute;
   overflow:hidden;
   top:0;
@@ -281,4 +345,59 @@ a:hover { color: #39ace7}
   transition-delay:.2s;
 }
 
+.question{
+  background-color: #17a2b8;
+  margin-left: 14%;
+  margin-right: 14%;
+  color: white;
+}
 
+
+/*volet*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+*{box-sizing: border-box;}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/**************SHUTTER******************/
+#toogle{display: none;}
+label[for=toogle]{
+  position: absolute;
+  background: #fab822;
+  width: 150px;
+  height: 50px;
+  right: -100px;
+  top: 50px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  border-radius: 0 0 10px 10px;
+}
+#volet{
+  position: absolute;
+  top: 1000px;
+  left: 0;
+  height: 350px;
+  width: 300px;
+  background: rgb(88,148,66);
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+
+#toogle:checked ~ #volet{
+  left: -300px;
+}
+/*********************************************/
+
+#page .content{
+  margin: 50px auto;
+  width: 1000px;
+}
