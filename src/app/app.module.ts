@@ -28,6 +28,8 @@ import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { FilterBookingPipe } from './pipes/filterbooking.pipe';
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { SearchbarComponent } from './component/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { FilterBookingPipe } from './pipes/filterbooking.pipe';
     BookingListComponent,
     RegistrationComponent,
     FilterBookingPipe,
+    CarouselComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,
