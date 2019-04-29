@@ -63,7 +63,4 @@ export class EstablishmentService {
 
     return obs1.pipe(map(treatment));
   }
-
-  
-
 }
