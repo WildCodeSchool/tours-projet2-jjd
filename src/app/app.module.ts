@@ -30,6 +30,7 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { FilterBookingPipe } from './pipes/filterbooking.pipe';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { SearchbarComponent } from './component/searchbar/searchbar.component';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { SearchbarComponent } from './component/searchbar/searchbar.component';
     FilterBookingPipe,
     CarouselComponent,
     SearchbarComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
