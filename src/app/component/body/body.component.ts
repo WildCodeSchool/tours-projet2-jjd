@@ -24,8 +24,9 @@ export class BodyComponent implements OnInit {
   ngOnInit() {
     if (this.user) {
       this.getEstablishment();
+    } else {
+      this.getAllEstablishment();
     }
-    this.getAllEstablishment();
   }
 
   // get listAll establishment by id
