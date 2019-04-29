@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../../core/models/profile';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -14,13 +14,10 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   public profile: Profile;
   loginForm: FormGroup;
-  loading = false;
-  submitted = false;
   error: string = '';
 
   constructor(private fb: FormBuilder,
               public authenticationService: AuthenticationService,
-              private route: ActivatedRoute,
               private router: Router,
               private toastr: ToastrService) {
   }
@@ -37,12 +34,6 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .subscribe(
         (data) => {
@@ -52,7 +43,6 @@ export class LoginComponent implements OnInit {
         (error) => {
           this.error = error;
           this.loginForm.reset();
-          this.loading = false;
         });
   }
 }

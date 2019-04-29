@@ -1,7 +1,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
 
-    <form (ngSubmit)="onSubmit()" [formGroup]='loginForm'>
+    <form (ngSubmit)="loginForm.valid && onSubmit()" [formGroup]='loginForm'>
       <input type="text" id="email" class="fadeIn second" name="email" formControlName='email' >
       <input type="text" id="password" class="fadeIn third" name="password" formControlName='password' >
       <button type="submit" class="btn btn-success fadeIn fourth m-3" value="Log In">Log in</button>
