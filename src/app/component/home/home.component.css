@@ -337,6 +337,7 @@ label[for=toogle]{
 }
 #volet{
   position: absolute;
+  z-index: 1;
   top: 660px;
   left: 0;
   height: 350px;
@@ -397,7 +398,7 @@ label[for=toogle]{
 
 @media (min-width: 1200px) {
   .hovereffect .overlay {
-    height:91%;
+    height:87%;
   }
   #volet{
     height: 320px;
