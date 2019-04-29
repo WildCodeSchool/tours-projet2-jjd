@@ -1,0 +1,210 @@
+
+
+<div class="container mt-4">
+
+    <h1 class="text-center title-form mb-4">Profile Form</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]='profileForm'>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="firstName"></label>
+                <input [ngClass]="profileForm.get('firstName').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='firstName' type="text" placeholder="First Name*" class="form-control"
+                       id="firstName"
+                       required name="firstName">
+                <div class="valid-feedback">
+                    <div *ngIf="profileForm.get('firstName')">
+                        <span *ngIf="profileForm.get('firstName')">First Name is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="profileForm.get('firstName').errors">
+                        <span *ngIf="profileForm.get('firstName').errors.required">First name is required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="lastName"></label>
+                <input [ngClass]="profileForm.get('lastName').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='lastName'
+                       type="text" placeholder="Last Name*" class="form-control" id="lastName" required name="lastName">
+                <div class="valid-feedback">
+                    <div *ngIf="profileForm.get('lastName')">
+                        <span *ngIf="profileForm.get('lastName')">Last name is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="profileForm.get('lastName').errors">
+                        <span *ngIf="profileForm.get('lastName').errors.required"> Last Name is required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="key"></label>
+                <input [ngClass]="profileForm.get('key').errors ? 'is-invalid' : 'is-valid'" formControlName='key'
+                       type="text"
+                       class="form-control" id="key" placeholder="Key*" required name="key">
+                <div class="valid-feedback">
+                    <div *ngIf="profileForm.get('key')">
+                        <span *ngIf="profileForm.get('key')">Key is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="profileForm.get('key').errors">
+                        <span *ngIf="profileForm.get('key').errors.required">key is required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Adress</h2>
+
+        <div formGroupName='address'>
+            <div class="form-group">
+                <label for="street"></label>
+                <input [ngClass]="profileForm.get('address').get('street').errors ? 'is-invalid' : 'is-valid'"
+                       formControlName='street' type="text" class="form-control" id="street" placeholder="Street*"
+                       required
+                       name="street">
+                <div class="valid-feedback">
+                    <div *ngIf="profileForm.get('address').get('street')">
+                        <span *ngIf="profileForm.get('address').get('street')">Street is valid</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div *ngIf="profileForm.get('address').get('street').errors">
+                        <span *ngIf="profileForm.get('address').get('street').errors.required">Street is required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class='col-md-4'>
+                    <div class="formGroup">
+                        <label for="number"></label>
+                        <input [ngClass]="profileForm.get('address').get('number').errors ? 'is-invalid' : 'is-valid'"
+                               formControlName='number' type=" text" class="form-control" placeholder="Number*"
+                               id="number" required
+                               name="number">
+                        <div class="valid-feedback">
+                            <div *ngIf="profileForm.get('address').get('number')">
+                                <span *ngIf="profileForm.get('address').get('number')">Number is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="profileForm.get('address').get('number').errors">
+                                <span *ngIf="profileForm.get('address').get('number').errors.required">Number is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="zipCode"></label>
+                        <input [ngClass]="profileForm.get('address').get('zipCode').errors ? 'is-invalid' : 'is-valid'"
+                               formControlName='zipCode' type="text" class="form-control" placeholder="Zip Code*"
+                               id="zipCode" required
+                               name="zipCode">
+                        <div class="valid-feedback">
+                            <div *ngIf="profileForm.get('address').get('zipCode')">
+                                <span *ngIf="profileForm.get('address').get('zipCode')">ZipCode is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="profileForm.get('address').get('zipCode').errors">
+                                <span *ngIf="profileForm.get('address').get('zipCode').errors.required">ZipCode is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="city"></label>
+                        <input [ngClass]="profileForm.get('address').get('city').errors ? 'is-invalid' : 'is-valid'"
+                               formControlName='city' type="text" class="form-control" placeholder="City*" id="city"
+                               required
+                               name="city">
+                        <div class="valid-feedback">
+                            <div *ngIf="profileForm.get('address').get('city')">
+                                <span *ngIf="profileForm.get('address').get('city')">City is valid</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div *ngIf="profileForm.get('address').get('city').errors">
+                                <span *ngIf="profileForm.get('address').get('city').errors.required">City is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Contact</h2>
+
+        <div formGroupName='contact'>
+
+            <div class="form-row">
+
+                <div class="col-md-4">
+                    <label for="fax"></label>
+                    <input [ngClass]="profileForm.get('contact').get('fax').errors ? 'is-invalid' : 'is-valid'"
+                           formControlName='fax' type="tel" class="form-control" placeholder="Fax" id="fax" name="fax">
+                    <div class="valid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('fax')">
+                            <span *ngIf="profileForm.get('contact').get('fax')">Fax is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('fax').errors">
+                            <span *ngIf="profileForm.get('contact').get('fax').errors.required">Fax is required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="phone"></label>
+                    <input [ngClass]="profileForm.get('contact').get('phone').errors ? 'is-invalid' : 'is-valid'"
+                           formControlName='phone' type="tel" class="form-control" placeholder="Phone*" id="phone"
+                           required
+                           name="phone">
+                    <div class="valid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('phone')">
+                            <span *ngIf="profileForm.get('contact').get('phone')">Phone is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('phone').errors">
+                            <span *ngIf="profileForm.get('contact').get('phone').errors.required">Phone is required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="email"></label>
+                    <input [ngClass]="profileForm.get('contact').get('email').errors ? 'is-invalid' : 'is-valid'"
+                           formControlName='email' type="email" class="form-control" id="email" placeholder="E-mail*"
+                           required
+                           name="email">
+                    <div class="valid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('email')">
+                            <span *ngIf="profileForm.get('contact').get('email')">E-mail is valid</span>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <div *ngIf="profileForm.get('contact').get('email').errors">
+                            <span *ngIf="profileForm.get('contact').get('email').errors.required">E-mail is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success btn-block mt-4 mb-5">Submit</button>
+    </form>
+</div>
+
+
