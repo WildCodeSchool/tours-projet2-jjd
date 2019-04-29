@@ -11,7 +11,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 
 export class BodyComponent implements OnInit {
   public establishment: Establishment[];
-  public allEstablishment: Establishment[];
   public user = this.authenticationService.user;
 
   public filter;
@@ -40,7 +39,7 @@ export class BodyComponent implements OnInit {
   getAllEstablishment() {
     this.establishmentService.getAllEstablishment().subscribe(
       (param: Establishment[]) => {
-        this.allEstablishment = param;
+        this.establishment = param;
       },
     );
   }

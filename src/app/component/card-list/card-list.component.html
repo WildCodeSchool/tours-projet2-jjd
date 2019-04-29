@@ -1,0 +1,18 @@
+<div class="bar">
+    <h2 class="text-center m-4"><ng-content></ng-content></h2>
+</div>
+<div class="row">
+    <ng-container *ngFor="let establishment of establishments | filter:filter; ">
+
+      <div *ngIf="type && establishment.type == type" class="col-md-6 col-xl-3 mt-4">
+          <!-- Début import du composant card -->
+          <app-card [establishment]="establishment"></app-card>
+          <!-- Fin import du composant card -->
+      </div>
+      <div *ngIf="!type" class="col-md-6 col-xl-3 mt-4">
+          <!-- Début import du composant card -->
+          <app-card [establishment]="establishment"></app-card>
+          <!-- Fin import du composant card -->
+      </div>
+    </ng-container>
+  </div>
