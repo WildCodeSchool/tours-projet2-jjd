@@ -10,7 +10,6 @@ import { HomeComponent } from './component/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
-import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -34,7 +33,6 @@ import { FilterBookingPipe } from './pipes/filterbooking.pipe';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    NgbdDatepickerPopup,
     BookingComponent,
     EtablishementComponent,
     ProfileComponent,
