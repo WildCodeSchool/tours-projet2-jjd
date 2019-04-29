@@ -5,14 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { BodyComponent } from './component/body/body.component';
+import { HomeComponent } from './component/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
-import { NgbdDatepickerPopup } from './component/datepicker/datepicker.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -34,10 +31,8 @@ import { FilterBookingPipe } from './pipes/filterbooking.pipe';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    BodyComponent,
+    HomeComponent,
     FooterComponent,
-    DashboardComponent,
-    NgbdDatepickerPopup,
     BookingComponent,
     EtablishementComponent,
     ProfileComponent,

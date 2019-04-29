@@ -3,6 +3,7 @@ import { Profile } from '../../core/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
     public profileService: ProfileService,
     private fb: FormBuilder,
     private router: Router,
+    private toastr: ToastrService,
     ) { }
 
   profileForm = this.fb.group({
@@ -51,6 +53,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.putProfile(this.profileForm.value).subscribe(
       (profile: Profile) => {
         this.profileForm.patchValue(profile);
+        this.toastr.success('success', 'Profile update');
         this.router.navigate(['/profile/list']);
       },
     );

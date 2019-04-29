@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstablishmentService } from '../../../services/establishment.service';
 import { Establishment } from '../../../core/models/establishment';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -16,7 +15,6 @@ export class EstablishmentListComponent implements OnInit {
 
   constructor(
     public establishmentService: EstablishmentService,
-    private router: Router,
     private toastr: ToastrService,
   ) {
   }
@@ -40,10 +38,10 @@ export class EstablishmentListComponent implements OnInit {
     if (r) {
       this.establishmentService.deleteEstablishment(id).subscribe(() => {
         this.establishments.splice(index, 1);
+        if (index) {
+          this.toastr.success('Success', 'Establishment Deleted');
+        }
       });
-      if (index) {
-        this.toastr.success('Success', 'Establishment Deleted');
-      }
     }
   }
 

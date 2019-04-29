@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./booking-list.component.css'],
 })
 export class BookingListComponent implements OnInit {
-  public booking: Booking[];
+  public bookings: Booking[];
   public id;
   // search data
   public filterData;
@@ -21,23 +21,23 @@ export class BookingListComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
+      if (this.id) {
+        this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
+          this.bookings = param;
+        });
+      }
     });
-    if (this.id) {
-      this.bookingService.getListBooking(this.id).subscribe((param: Booking[]) => {
-        this.booking = param;
-      });
-    }
   }
 
   deleteBooking(id, index) {
     const r = confirm('Are you sure ?');
     if (r) {
       this.bookingService.deleteBooking(id).subscribe(() => {
-        this.booking.splice(index, 1);
+        this.bookings.splice(index, 1);
+        if (index) {
+          this.toastr.success('success', 'Delete');
+        }
       });
-      if (index) {
-        this.toastr.success('success', 'Delete');
-      }
     }
   }
 }

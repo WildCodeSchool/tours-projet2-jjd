@@ -16,7 +16,6 @@ export class EtablishementComponent implements OnInit {
   types = [
     { name: 'Bar' },
     { name: 'Restaurant' },
-    { name: 'Computer' },
   ];
 
   constructor(
@@ -59,14 +58,14 @@ export class EtablishementComponent implements OnInit {
     }),
     networks: this.fb.array([
       this.fb.group({
-        name: ['', [Validators.required]],
-        link: ['', [Validators.required]],
+        name: [''],
+        link: [''],
       }),
     ]),
     medias: this.fb.array([
       this.fb.group({
-        url: ['', [Validators.required]],
-        order: ['', [Validators.required]],
+        url: [''],
+        order: [''],
       }),
     ]),
   });
@@ -74,25 +73,37 @@ export class EtablishementComponent implements OnInit {
   // establishmentForm onSubmit create or update, redirect to '/establishment/list'
   onSubmit() {
     if (this.id) {
-      const updateEstablishment = this.establishmentService.putEstablishment(
+
+      this.toastr.warning('Being update', 'Establishment being Updater');
+
+      this.establishmentService.putEstablishment(
         this.id, this.establishmentForm.value).subscribe(
-        (establishment: Establishment) =>
-          this.establishmentForm.patchValue(establishment),
-      );
-      if (updateEstablishment) {
-        this.toastr.success('Success', 'Establishment Updater');
-      }
-      this.router.navigateByUrl('/establishment/list');
+        (establishment: Establishment) => {
+          this.establishmentForm.patchValue(establishment);
+          this.toastr.clear();
+          this.toastr.success('success', 'Establishment Updater');
+          this.router.navigateByUrl('/establishment/list');
+        },
+        (error) => {
+          this.toastr.clear();
+          this.toastr.error(`Error ${error}`);
+        });
     } else {
-      const createEstablishment = this.establishmentService.postEstablishment(
+
+      this.toastr.warning('Being create', 'Establishment being Create');
+
+      this.establishmentService.postEstablishment(
         this.establishmentForm.value).subscribe(
-        (establishment: Establishment) =>
-          this.establishmentForm.patchValue(establishment),
-      );
-      if (createEstablishment) {
-        this.toastr.success('Success', 'Establishment Create');
-      }
-      this.router.navigateByUrl('/establishment/list');
+          (establishment: Establishment) => {
+            this.establishmentForm.patchValue(establishment);
+            this.toastr.clear();
+            this.toastr.success('success', 'Establishment Created');
+            this.router.navigateByUrl('/establishment/list');
+          },
+          (error) => {
+            this.toastr.clear();
+            this.toastr.error(`Error ${error}`);
+          });
     }
   }
 
@@ -116,22 +127,22 @@ export class EtablishementComponent implements OnInit {
   }
 
   // get media establishmentForm
-  get mediaForms() {
+  get mediasForms() {
     return this.establishmentForm.get('medias') as FormArray;
   }
 
   // add media form establishmentForm
-  addMedia() {
+  addMedias() {
     const medias = this.fb.group({
       url: ['', [Validators.required]],
       order: ['', [Validators.required]],
     });
-    this.mediaForms.push(medias);
+    this.mediasForms.push(medias);
   }
 
   // delete media establishmentForm
-  deleteMedia(i) {
-    this.mediaForms.removeAt(i);
+  deleteMedias(i) {
+    this.mediasForms.removeAt(i);
   }
 
 }
