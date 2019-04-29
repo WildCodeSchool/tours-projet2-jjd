@@ -9,7 +9,7 @@
       <!-- Début code de la search barre -->
       <div class="search">
         <!-- Appel du composant searchbar -->
-        <app-searchbar></app-searchbar>
+        <app-searchbar (searchChange)="onSearchChange($event)"></app-searchbar>
         <div class="col-12 m-3">
           <div class="alert alert-danger m-4 text-center"
           *ngIf="establishment &&(establishment | filter:filterData).length === 0">
@@ -86,7 +86,7 @@
         
         <div class="search">
           <!--Appel du composant searchbar-->
-          <app-searchbar></app-searchbar>
+          <app-searchbar (searchChange)="onSearchChange($event)"></app-searchbar>
           <div class="col-12 m-3">
             <div class="alert alert-danger m-4 text-center"
             *ngIf="allEstablishment &&(allEstablishment | filter:filterData).length === 0">

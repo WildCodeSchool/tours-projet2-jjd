@@ -14,7 +14,6 @@ export class BodyComponent implements OnInit {
   public allEstablishment: Establishment[];
   public user = this.authenticationService.user;
 
-  // search data
   public filterData;
 
   constructor(public establishmentService: EstablishmentService,
@@ -24,9 +23,8 @@ export class BodyComponent implements OnInit {
   ngOnInit() {
     if (this.user) {
       this.getEstablishment();
-    } else {
-      this.getAllEstablishment();
     }
+    this.getAllEstablishment();
   }
 
   // get listAll establishment by id
@@ -47,4 +45,7 @@ export class BodyComponent implements OnInit {
     );
   }
 
+  onSearchChange($event:any) {
+    console.log($event);
+  }
 }
