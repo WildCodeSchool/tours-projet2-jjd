@@ -179,7 +179,7 @@
                 </div>
 
                 <div class="card-body p-0">
-                  <p class="text-center mt-3"><a
+                  <p class="text-center mt-4"><a
                       [routerLink]="['/establishment', 'detail', allEstablishment._id]">{{allEstablishment.name| slice:0:15}}</a>
                   </p>
                   <a class="btn btn-info btn-block mt-3"
@@ -190,54 +190,48 @@
           </div>
         </ng-container>
       </div>
+
       <input type="checkbox" name="toogle" id="toogle"/>
       <div id="volet">
-        <p class="titleOpen">Best restaurants of week : </p>
+        <p class="titleOpen text-center mt-3">Best restaurants of week : </p>
         <ng-container *ngFor="let allEstablishment of allEstablishment | slice:0:1 ">
             <img
             src="{{allEstablishment.medias[0]?.url ? allEstablishment.medias[0].url : 'http://teuge-airport.nl/wp-content/uploads/no_image.jpg'}}"
             class="img-fluid card-img-top p-1" alt="image establishment">
-          <p>{{allEstablishment.name}}</p>
+          <p class="text-center mt-3 "><a [routerLink]="['/establishment', 'detail', allEstablishment._id]">{{allEstablishment.name}}</a></p>
         </ng-container>
         <label for="toogle">Open</label>
       </div>
+
     </div>
 
   </ng-template>
 
+    <div class="question mb-5 mt-5 none">
+      <h3 class="mb-3 d-flex justify-content-center">How it works ?</h3>
 
-</div>
-
-<div class="question mb-5 mt-5">
-  <h3 class="mb-5 d-flex justify-content-center">How it works ?</h3>
-<div class="container mb-5 mt-5 d-flex">
-<div >
-  <img  class="icone" src="assets/image/map.png">
-</div>
-
-<div >
-  <img  class ="icone-1" src="assets/image/reserv.png">
-</div>
-<div >
-  <img  class ="icone-2" src="assets/image/sold.png">
-</div>
-</div>
-<div class="container d-flex">
-<div class="explication" >
-    <h6>Discover</h6>
-    <p>The most popular restaurants.</p>
-  </div>
-  <div class="explication-1" >
-      <h6>Book</h6>
-      <p>Directly according to your desires.</p>
-    </div>
-    <div class="explication-2" >
-        <h6>Benefit</h6>
-        <p>Exclusive offers up to -50%.</p>
+      <div class="d-flex">
+        <div class="col-4 text-center">
+          <img class="img-fluid" width="30%" height="30%" src="assets/image/map.png">
+          <h6 class="mt-3">Discover</h6>
+          <p>The most popular restaurants.</p>
+        </div>
+        <div class="col-4 text-center">
+          <img class ="img-fluid" width="30%" height="30%" src="assets/image/reserv.png">
+          <h6 class="mt-3">Book</h6>
+          <p>Directly according to your desires.</p>
+        </div>
+        <div class="col-4 text-center">
+          <img  class ="img-fluid" width="30%" height="30%" src="assets/image/sold.png">
+          <h6 class="mt-3">Benefit</h6>
+          <p>Exclusive offers up to -50%.</p>
+        </div>
       </div>
-  </div>
+    </div>
+
 </div>
-<div class="container">
+
+<div class="container none">
   <div class="row">
     <div class="col-sm-3">
       <div class="pVert">
@@ -254,8 +248,7 @@
   </div>
 </div>
 
-
-<div class="container download mb-5">
+<div class="container download mb-5 none">
 <div>
   <img class="disponible" src="assets/image/appstore1.png">
 </div>

@@ -38,10 +38,10 @@ export class EstablishmentListComponent implements OnInit {
     if (r) {
       this.establishmentService.deleteEstablishment(id).subscribe(() => {
         this.establishments.splice(index, 1);
+        if (index) {
+          this.toastr.success('Success', 'Establishment Deleted');
+        }
       });
-      if (index) {
-        this.toastr.success('Success', 'Establishment Deleted');
-      }
     }
   }
 

@@ -27,53 +27,11 @@ font-family: URW Chancery L, cursive;
 font-size: 30px;
 }
 
-.icone{
-  width: 42%;
-  height: 73%;
-  margin-left: 50%;
-
-}
-.icone-1{
-width: 17%;
-height: 73%;
-margin-left: 35%;
-}
-
-.icone-2{
-  width: 51%;
-  height: 78%;
-  margin-left: -26%;
-  }
-
-
-  .explication {
-    text-align:center;
-    font-size: 15px;
-    margin-top: -6%;
-    margin-left: 6%;
-  }
-
-  .explication-1 {
-    text-align:center;
-    font-size: 15px;
-    margin-top: -6%;
-    margin-left: 15%;
-  }
-
-
 .titleOpen{
   color: white;
   font-size: 20px;
-  text-decoration: underline;
 }
 
-
-  .explication-2 {
-    text-align:center;
-    font-size: 15px;
-    margin-top: -6%;
-    margin-left: 16%;
-  }
 
   h6 {
     font-size: 15px;
@@ -347,8 +305,6 @@ a:hover { color: #39ace7}
 
 .question{
   background-color: #17a2b8;
-  margin-left: 14%;
-  margin-right: 14%;
   color: white;
 }
 
@@ -363,13 +319,11 @@ a{
   color: inherit;
 }
 
-
-
 /**************SHUTTER******************/
 #toogle{display: none;}
 label[for=toogle]{
   position: absolute;
-  background: #fab822;
+  background: #fad938;
   width: 150px;
   height: 50px;
   right: -100px;
@@ -383,11 +337,11 @@ label[for=toogle]{
 }
 #volet{
   position: absolute;
-  top: 1000px;
+  top: 660px;
   left: 0;
   height: 350px;
   width: 300px;
-  background: rgb(88,148,66);
+  background: #fab822;
   -webkit-transition: all .5s ease-in;
   transition: all .5s ease-in;
 }
@@ -400,4 +354,52 @@ label[for=toogle]{
 #page .content{
   margin: 50px auto;
   width: 1000px;
+}
+
+@media (max-width: 575.98px) {
+  .none { display: none }
+  .hovereffect .overlay {
+    height:90%;
+  }
+  #volet{
+    height: 350px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .none { display: none }
+  .hovereffect .overlay {
+    height:90%;
+  }
+  #volet{
+    height: 450px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .none { display: none }
+  .hovereffect .overlay {
+    height:89%;
+  }
+  #volet{
+    height: 380px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hovereffect .overlay {
+    height:91%;
+  }
+  #volet{
+    height: 450px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hovereffect .overlay {
+    height:91%;
+  }
+  #volet{
+    height: 320px;
+  }
 }
