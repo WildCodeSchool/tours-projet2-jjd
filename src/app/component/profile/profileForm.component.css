@@ -1,0 +1,14 @@
+
+a {
+    color: white;
+}
+
+.container{
+    border: solid;
+    border-color: rgb(88, 148, 66);
+    padding: 4px;
+    position: relative;
+    background-color: #f3f4f5;
+    padding: 2%;
+}
+
