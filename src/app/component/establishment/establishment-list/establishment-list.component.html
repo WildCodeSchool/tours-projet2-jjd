@@ -41,22 +41,22 @@
         <ng-container *ngFor="let establishments of establishments| filter:filterData; let i = index ">
             <tr>
                 <td>{{establishments._id}}</td>
-                <td><a [routerLink]="['/establishment/detail/' + establishments._id ]">{{establishments.name}}</a></td>
+                <td><a [routerLink]="['/establishment','detail' + establishments._id ]">{{establishments.name}}</a></td>
                 <td>{{establishments.type}}</td>
                 <td>{{establishments.contact.phone}}</td>
                 <td>
                     <button class="btn btn-outline-success"><a
-                            [routerLink]="['/establishment/' + establishments._id +'/bookings']">Booking</a>
+                            [routerLink]="['/establishment' , establishments._id ,'bookings']">Booking</a>
                     </button>
                 </td>
                 <td>
                     <button class="btn btn-outline-success"><a
-                            [routerLink]="['/establishment/detail/' + establishments._id]">View</a>
+                            [routerLink]="['/establishment', 'detail' , establishments._id]">View</a>
                     </button>
                 </td>
                 <td>
                     <button class="btn btn-outline-success"><a
-                            [routerLink]="['/establishment/' + establishments._id +'/update']">Update</a>
+                            [routerLink]="['/establishment' , establishments._id ,'update']">Update</a>
                     </button>
                 </td>
                 <td>

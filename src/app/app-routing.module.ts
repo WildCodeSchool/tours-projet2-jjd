@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BookingComponent } from './component/booking/booking.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
 import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'establishment/create', component: EtablishementComponent, canActivate: [AuthGuard] },
   { path: 'establishment/:id', component: EtablishementComponent },
   { path: 'establishment/:id/update', component: EtablishementComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard/user/:userId', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'booking/:id', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'booking/:id/update', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'establishment/:id/bookings', component: BookingListComponent, canActivate: [AuthGuard] },

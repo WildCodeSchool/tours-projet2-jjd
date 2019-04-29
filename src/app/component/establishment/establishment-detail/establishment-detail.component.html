@@ -8,9 +8,7 @@
 
             <div class="card mb-3">
 
-                <ng-container *ngFor="let establishment of establishment.medias">
-                    <img [src]="establishment.url" class="img-fluid" alt="image establishment">
-                </ng-container>
+                <img *ngFor="let establishment of establishment.medias|slice:0:1" [src]="establishment.url" class="img-fluid" alt="image establishment">
 
                 <div class="card-body">
                     <div class="row">
@@ -57,7 +55,7 @@
                     </div>
 
                     <button class="btn btn-outline-success float-right"><a
-                            [routerLink]="['/establishment/' + establishment._id + '/booking/create']">Reservation</a>
+                            [routerLink]="['/establishment', establishment._id , 'booking', 'create']">Reservation</a>
                     </button>
 
                 </div>
