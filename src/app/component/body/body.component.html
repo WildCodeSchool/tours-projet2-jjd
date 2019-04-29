@@ -12,8 +12,8 @@
         <app-searchbar (searchChange)="onSearchChange($event)"></app-searchbar>
         <div class="col-12 m-3">
           <div class="alert alert-danger m-4 text-center"
-          *ngIf="establishment &&(establishment | filter:filterData).length === 0">
-          <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+          *ngIf="establishment &&(establishment | filter:filter).length === 0">
+          <h3>No establishment found <span *ngIf="filter"> with search "{{filter}}"</span></h3>
         </div>
       </div>
       <!-- Fin code search barre -->
@@ -23,7 +23,7 @@
       </div>
       
       <div class="row">
-        <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+        <ng-container *ngFor="let establishment of establishment | filter:filter; ">
           <div *ngIf="establishment.type == 'Bar'" class="col-md-6 col-xl-3 mt-4">
             <div class="card">
               <div class="hovereffect">
@@ -54,7 +54,7 @@
         </div>
         
         <div class="row">
-          <ng-container *ngFor="let establishment of establishment | filter:filterData; ">
+          <ng-container *ngFor="let establishment of establishment | filter:filter; ">
             <div *ngIf="establishment.type == 'Restaurant'" class="col-md-6 col-xl-3 mt-4">
               <div class="card">
                 <div class="hovereffect">
@@ -89,8 +89,8 @@
           <app-searchbar (searchChange)="onSearchChange($event)"></app-searchbar>
           <div class="col-12 m-3">
             <div class="alert alert-danger m-4 text-center"
-            *ngIf="allEstablishment &&(allEstablishment | filter:filterData).length === 0">
-            <h3>No establishment found <span *ngIf="filterData"> with search "{{filterData}}"</span></h3>
+            *ngIf="allEstablishment &&(allEstablishment | filter:filter).length === 0">
+            <h3>No establishment found <span *ngIf="filter"> with search "{{filter}}"</span></h3>
           </div>
         </div>
         
@@ -99,7 +99,7 @@
         </div>
         
         <div class="row">
-          <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filterData; ">
+          <ng-container *ngFor="let allEstablishment of allEstablishment | filter:filter; ">
             <div class="col-md-6 col-xl-3 mt-4">
               <div class="card">
                 

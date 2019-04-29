@@ -14,7 +14,7 @@ export class BodyComponent implements OnInit {
   public allEstablishment: Establishment[];
   public user = this.authenticationService.user;
 
-  public filterData;
+  public filter;
 
   constructor(public establishmentService: EstablishmentService,
               private authenticationService: AuthenticationService) {
@@ -46,6 +46,6 @@ export class BodyComponent implements OnInit {
   }
 
   onSearchChange($event:any) {
-    console.log($event);
+    this.filter = $event;
   }
 }
