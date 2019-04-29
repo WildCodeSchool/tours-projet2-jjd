@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  public user = this.authenticationService.user;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,

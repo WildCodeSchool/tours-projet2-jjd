@@ -12,13 +12,13 @@
                 <li>
                     <a class="nav-link link" [routerLink]="['/']">Home</a>
                 </li>
-                <li>
+                <li *ngIf="authenticationService.user">
                     <a class="nav-link link" [routerLink]="['/establishment/list']">Establishment</a>
                 </li>
-                <li>
+                <li *ngIf="authenticationService.user">
                     <a class="nav-link link" [routerLink]="['/profile/list']">Profile</a>
                 </li>
-                <div *ngIf="user; then thenBlock else elseBlock"></div>
+                <div *ngIf="authenticationService.user; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock>
                     <li>
                         <a class="nav-link link" [routerLink]="[]" (click)="logout()">Logout</a>
@@ -29,7 +29,7 @@
                         <a class="nav-link link" [routerLink]="['/login']">Login</a>
                     </li>
                 </ng-template>
-                <li>
+                <li *ngIf="!authenticationService.user">
                     <a class="nav-link link" [routerLink]="['/registration']">Registration</a>
                 </li>
             </ul>
