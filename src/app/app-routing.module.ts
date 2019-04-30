@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { BookingComponent } from './component/booking/booking.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
-import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
-import { ProfileComponent } from './component/profile/profile.component';
+import { ProfileComponent } from './component/profile/profile/profile.component';
+import { ProfileFormComponent } from './component/profile/profileForm/profileForm.component';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
 import { EstablishmentListComponent }
 from './component/establishment/establishment-list/establishment-list.component';
@@ -28,9 +28,9 @@ const routes: Routes = [
   { path: 'establishment/:id/bookings', component: BookingListComponent, canActivate: [AuthGuard] },
   { path: 'establishment/:establishmentId/booking/create',
     component: BookingComponent },
+  { path: 'profile-form', component: ProfileFormComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'profile/list', component: ProfileListComponent, canActivate: [AuthGuard] },
-  { path: 'profile/update', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profileForm/update', component: ProfileFormComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'forgot', component: ForgotComponent },

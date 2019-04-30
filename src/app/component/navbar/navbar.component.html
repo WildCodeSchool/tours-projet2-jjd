@@ -16,7 +16,7 @@
                     <a class="nav-link link" [routerLink]="['/establishment/list']">Establishment</a>
                 </li>
                 <li *ngIf="authenticationService.user">
-                    <a class="nav-link link" [routerLink]="['/profile/list']">Profile {{profile}}</a>
+                    <a class="nav-link link" [routerLink]="['/profile']">Profile {{profile}}</a>
                 </li>
                 <div *ngIf="authenticationService.user; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock>

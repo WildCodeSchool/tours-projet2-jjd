@@ -144,7 +144,6 @@ background-color: #f3f4f5;
 }
 
 .search {
-  border-right: none;
   border-color: rgb(88,148,66);
 }
 
@@ -401,6 +400,6 @@ label[for=toogle]{
     height:87%;
   }
   #volet{
-    height: 320px;
+    height: 355px;
   }
 }

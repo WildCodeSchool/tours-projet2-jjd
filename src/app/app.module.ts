@@ -11,7 +11,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { BookingComponent } from '../app/component/booking/booking.component';
 import { BookingListComponent } from './component/booking/booking-list/booking-list.component';
 import { EtablishementComponent } from './component/establishment/etablishement.component';
-import { ProfileComponent } from './component/profile/profile.component';
+import { ProfileFormComponent } from './component/profile/profileForm/profileForm.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,12 +20,12 @@ from './component/establishment/establishment-list/establishment-list.component'
 import { FilterPipe } from './pipes/filter.pipe';
 import { EstablishmentDetailComponent }
 from './component/establishment/establishment-detail/establishment-detail.component';
-import { ProfileListComponent } from './component/profile/profile-list/profile-list.component';
+import { ProfileComponent } from './component/profile/profile/profile.component';
 import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { FilterBookingPipe } from './pipes/filterbooking.pipe';
-import { CarouselComponent } from './component/carousel/carousel.component';
+import { NgbdCarouselConfig } from './component/carousel/carousel.component';
 import { SearchbarComponent } from './component/searchbar/searchbar.component';
 import { CardComponent } from './component/card/card.component';
 import { CardListComponent } from './component/card-list/card-list.component';
@@ -35,7 +35,6 @@ import { CardListComponent } from './component/card-list/card-list.component';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    HomeComponent,
     FooterComponent,
     BookingComponent,
     EtablishementComponent,
@@ -43,16 +42,17 @@ import { CardListComponent } from './component/card-list/card-list.component';
     EstablishmentListComponent,
     FilterPipe,
     EstablishmentDetailComponent,
-    ProfileListComponent,
+    ProfileComponent,
     LoginComponent,
     ForgotComponent,
     BookingListComponent,
     RegistrationComponent,
     FilterBookingPipe,
-    CarouselComponent,
+    NgbdCarouselConfig,
     SearchbarComponent,
     CardComponent,
     CardListComponent,
+    ProfileFormComponent,
   ],
   imports: [
     BrowserModule,
