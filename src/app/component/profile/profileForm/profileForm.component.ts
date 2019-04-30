@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../../core/models/profile';
+import { Profile } from '../../../core/models/profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  templateUrl: './profileForm.component.html',
+  styleUrls: ['./profileForm.component.css'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileFormComponent implements OnInit {
 
   constructor(
     public profileService: ProfileService,
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService,
     ) { }
 
   profileForm = this.fb.group({
@@ -53,7 +51,6 @@ export class ProfileComponent implements OnInit {
     this.profileService.putProfile(this.profileForm.value).subscribe(
       (profile: Profile) => {
         this.profileForm.patchValue(profile);
-        this.toastr.success('success', 'Profile update');
         this.router.navigate(['/profile/list']);
       },
     );
