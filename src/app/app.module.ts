@@ -25,6 +25,10 @@ import { LoginComponent } from './component/login/login.component';
 import { ForgotComponent } from './component/forgot/forgot.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { FilterBookingPipe } from './pipes/filterbooking.pipe';
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { SearchbarComponent } from './component/searchbar/searchbar.component';
+import { CardComponent } from './component/card/card.component';
+import { CardListComponent } from './component/card-list/card-list.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { FilterBookingPipe } from './pipes/filterbooking.pipe';
     BookingListComponent,
     RegistrationComponent,
     FilterBookingPipe,
+    CarouselComponent,
+    SearchbarComponent,
+    CardComponent,
+    CardListComponent,
   ],
   imports: [
     BrowserModule,
