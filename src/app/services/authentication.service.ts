@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticationService {
   public user:boolean;
+  public loginUser;
 
   constructor(private http: HttpClient) {
   }
@@ -20,6 +21,12 @@ export class AuthenticationService {
           localStorage.setItem('token', user.token);
         }
       }));
+  }
+
+  isLogin() {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
   }
 
   logout() {
