@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
   }
 
-  configUrl = 'http://open-reza.herokuapp.com/api/auth/signin';
+  configUrl = `${environment.apiUrl}/auth/signin`;
   login(email: string, password: string) {
     return this.http.post<any>(`${this.configUrl}`, { email, password })
       .pipe(tap((user) => {

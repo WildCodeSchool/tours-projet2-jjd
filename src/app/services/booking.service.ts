@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Booking } from '../core/models/booking';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class BookingService {
 
-  configUrl = 'http://open-reza.herokuapp.com/api/bookings';
-  configUrl1 = 'http://open-reza.herokuapp.com/api/establishments';
+  configUrl = `${environment.apiUrl}/bookings`;
+  configUrl1 = `${environment.apiUrl}establishments`;
 
   constructor(private http: HttpClient) {}
   public getBooking(id): Observable<Booking> {

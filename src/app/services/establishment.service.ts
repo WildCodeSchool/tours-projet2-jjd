@@ -3,13 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Establishment } from '../core/models/establishment';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class EstablishmentService {
-  configUrl = 'http://open-reza.herokuapp.com/api/profiles/establishments';
-  configUrlEstablishment = 'http://open-reza.herokuapp.com/api/establishments';
+  configUrl = `${environment.apiUrl}/profiles/establishments`;
+  configUrlEstablishment = `${environment.apiUrl}/establishments`;
   constructor(private http: HttpClient) {
   }
 
