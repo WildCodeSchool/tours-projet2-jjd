@@ -1,5 +1,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://open-reza.herokuapp.com/api',
+  apiUrl: 'https://open-reza-api.maxdhn.pw/api',
 };
