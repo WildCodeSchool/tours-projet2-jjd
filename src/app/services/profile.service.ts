@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Profile } from '../core/models/profile';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { Profile } from '../core/models/profile';
 export class ProfileService {
   constructor(private http: HttpClient) {
   }
-  configUrl = 'http://open-reza.herokuapp.com/api/profiles/';
+  configUrl = `${environment.apiUrl}/profiles/`;
 
   public getProfile(): Observable<Profile> {
     const recup: Observable<any> = this.http.get(this.configUrl);
