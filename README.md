@@ -1,27 +1,37 @@
-# ToursProjet2Jjd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+![logo](https://zupimages.net/up/19/18/68hv.png)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# <center> Open' resa</center>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![logo](https://zupimages.net/up/19/18/p632.png)
 
-## Build
+ <center>This project was generated with [Angular CLI] version 7.0.4.</center>
+ 
+[open' resa](https://open-resa.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+ ## <center> Development server</center>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. for simple read follow the link : https://open-resa.com.
 
-## Running end-to-end tests
+> The app will automatically reload if you change any of the source files.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+##  <center>Code scaffolding</center>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## <center>Build</center>
+
+> Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+##  <center>Running unit tests</center>
+
+> Run `ng lint` to execute the unit tests (tests of AirBNB)
+
+
+## <center> Further help</center>
+
+> To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
