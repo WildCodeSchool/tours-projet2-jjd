@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BookingService {
 
   configUrl = `${environment.apiUrl}/bookings`;
-  configUrl1 = `${environment.apiUrl}establishments`;
+  configUrl1 = `${environment.apiUrl}/establishments`;
 
   constructor(private http: HttpClient) {}
   public getBooking(id): Observable<Booking> {
