@@ -18,10 +18,12 @@ export class NavbarComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.profileService.getProfile().subscribe(
+    if (this.authenticationService.isLogin()) {
+      this.profileService.getProfile().subscribe(
       (param) => {
         this.profile = param.firstName;
       });
+    }
   }
 
   logout() {
