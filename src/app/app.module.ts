@@ -71,10 +71,8 @@ import { CardListComponent } from './component/card-list/card-list.component';
     }),
     JwtModule.forRoot({
       config: {
+        tokenGetter,
         whitelistedDomains: ['open-reza.herokuapp.com'],
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
       },
     }),
   ],
@@ -82,3 +80,7 @@ import { CardListComponent } from './component/card-list/card-list.component';
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}

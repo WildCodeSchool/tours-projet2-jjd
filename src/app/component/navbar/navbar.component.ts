@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   public profile;
 
   constructor(private router: Router,
-              private authenticationService: AuthenticationService,
+              public authenticationService: AuthenticationService,
               private profileService: ProfileService,
               private toastr: ToastrService) { }
 
